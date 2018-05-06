@@ -22,4 +22,9 @@ public abstract class Combatant implements Fight, Serializable {
 		this.combatantStats = combatantStats;
 	}
 
+	@Override
+	public String toString() {
+		return "Combatant [combatantStats=" + combatantStats + "]";
+	}
+
 }

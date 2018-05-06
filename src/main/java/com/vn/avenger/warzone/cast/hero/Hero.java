@@ -11,5 +11,5 @@ public class Hero extends Combatant implements Hibernate<Hero> {
 	public Hero(CombatantStats combatantStats) {
 		super(combatantStats);
 	}
-
+	
 }
