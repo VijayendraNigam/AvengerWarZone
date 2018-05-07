@@ -39,9 +39,9 @@ public class Enums {
 		}
 	}
 
-	public static class HEALTH {
+	public static class HEALTH_VO {
 
-		public enum MAXIMUM_RANGE {
+		public enum HEALTH {
 
 			LEVEL_I(100), 
 			LEVEL_II(200), 
@@ -51,12 +51,50 @@ public class Enums {
 
 			private int health;
 
-			MAXIMUM_RANGE(int health) {
+			HEALTH(int health) {
 				this.health = health;
 			}
 
 			public int getHealth() {
 				return this.health;
+			}
+		}
+		
+		public enum STRENGTH {
+
+			LEVEL_I(100), 
+			LEVEL_II(200), 
+			LEVEL_III(500), 
+			LEVEL_IV(1000), 
+			LEVEL_V(1000000);
+
+			private int strength;
+
+			STRENGTH(int strength) {
+				this.strength = strength;
+			}
+
+			public int getStrength() {
+				return this.strength;
+			}
+		}
+		
+		public enum STAMINA {
+
+			LEVEL_I(100), 
+			LEVEL_II(200), 
+			LEVEL_III(500), 
+			LEVEL_IV(1000), 
+			LEVEL_V(1000000);
+
+			private int stamina;
+
+			STAMINA(int stamina) {
+				this.stamina = stamina;
+			}
+
+			public int getStamina() {
+				return this.stamina;
 			}
 		}
 		
@@ -103,7 +141,7 @@ public class Enums {
 	
 	public static class LIFE {
 
-		public enum MAXIMUM_RANGE {
+		public enum DEFAULT_COUNT {
 
 			LEVEL_I(1), 
 			LEVEL_II(2), 
@@ -113,7 +151,7 @@ public class Enums {
 			
 			private int count;
 
-			MAXIMUM_RANGE(int count) {
+			DEFAULT_COUNT(int count) {
 				this.count = count;
 			}
 
@@ -171,8 +209,9 @@ public class Enums {
 			TEN(10), 
 			HUNDRED(100), 
 			THOUSAND(1000), 
+			TEN_THOUSAND(10000),
 			MILLION(1000000),
-			TRLLION(1000000000);
+			TRILLION(1000000000);
 
 			private int value;
 
@@ -282,22 +321,29 @@ public class Enums {
 	
 	public static class HEAL {
 		
-		public enum POWER {
+		public enum ENERGY {
+			HEALTH,
+			STRENGTH,
+			STAMINA,
+			ALL;
+		}
+		
+		public enum RESTORE {
 			
+			TINY(0.10f),
 			LIGHT(0.25f), 
 			SUPER(0.50f),
 			ULTRA(0.75f);
 
 			private float power;
 
-			POWER(float power) {
+			RESTORE(float power) {
 				this.power = power;
 			}
 
 			public float getPower() {
 				return this.power;
 			}
-			
 		}
 		
 	}
@@ -306,16 +352,16 @@ public class Enums {
 
 		public enum TYPES {
 
-			SURVIVAL("Survival", COINS.COUNT.HUNDRED, HEAL.POWER.LIGHT, LEVELS.I), 
-			RECOVERY("Recovery", COINS.COUNT.THOUSAND, HEAL.POWER.SUPER, LEVELS.II);
+			SURVIVAL("Survival", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.I), 
+			RECOVERY("Recovery", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.II);
 
 
 			private String potionName;
 			private COINS.COUNT price;
-			private HEAL.POWER healPower;
+			private HEAL.RESTORE healPower;
 			private LEVELS minimumLevelNeeded;
 
-			TYPES(String potionName, COINS.COUNT price, HEAL.POWER healPower, LEVELS minimumLevelNeeded) {
+			TYPES(String potionName, COINS.COUNT price, HEAL.RESTORE healPower, LEVELS minimumLevelNeeded) {
 				this.potionName = potionName;
 				this.price = price;
 				this.healPower = healPower;
@@ -330,7 +376,7 @@ public class Enums {
 				return this.price;
 			}
 
-			public HEAL.POWER getHealPower() {
+			public HEAL.RESTORE getHealPower() {
 				return this.healPower;
 			}
 
@@ -345,16 +391,16 @@ public class Enums {
 
 		public enum TYPES {
 
-			QUDRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.POWER.SUPER, LEVELS.I), 
-			TEDRA("Tedra", DIAMONDS.COUNT.FIVE, HEAL.POWER.ULTRA, LEVELS.II);
+			QUDRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.RESTORE.SUPER, LEVELS.I), 
+			TEDRA("Tedra", DIAMONDS.COUNT.FIVE, HEAL.RESTORE.ULTRA, LEVELS.II);
 
 
 			private String instaHealthName;
 			private DIAMONDS.COUNT price;
-			private HEAL.POWER healPower;
+			private HEAL.RESTORE healPower;
 			private LEVELS minimumLevelNeeded;
 
-			TYPES(String instaHealthName, DIAMONDS.COUNT price, HEAL.POWER healPower, LEVELS minimumLevelNeeded) {
+			TYPES(String instaHealthName, DIAMONDS.COUNT price, HEAL.RESTORE healPower, LEVELS minimumLevelNeeded) {
 				this.instaHealthName = instaHealthName;
 				this.price = price;
 				this.healPower = healPower;
@@ -369,12 +415,95 @@ public class Enums {
 				return price;
 			}
 
-			public HEAL.POWER getHealPower() {
+			public HEAL.RESTORE getHealPower() {
 				return healPower;
 			}
 
 			public LEVELS getMinimumLevelNeeded() {
 				return minimumLevelNeeded;
+			}
+
+		}
+	}
+	
+	public static class FIRST_AID {
+
+		public enum TYPES {
+
+			CLASSIC("Classic", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I);
+
+
+			private String firstAidName;
+			private COINS.COUNT price;
+			private HEAL.RESTORE healPower;
+			private LEVELS minimumLevelNeeded;
+
+			TYPES(String firstAidName, COINS.COUNT price, HEAL.RESTORE healPower, LEVELS minimumLevelNeeded) {
+				this.firstAidName = firstAidName;
+				this.price = price;
+				this.healPower = healPower;
+				this.minimumLevelNeeded = minimumLevelNeeded;
+			}
+
+			public String getFirstAidName() {
+				return this.firstAidName;
+			}
+
+			public COINS.COUNT getPrice() {
+				return this.price;
+			}
+
+			public HEAL.RESTORE getHealPower() {
+				return this.healPower;
+			}
+
+			public LEVELS getMinimumLevelNeeded() {
+				return this.minimumLevelNeeded;
+			}
+
+		}
+	}
+	
+	public static class FOOD {
+
+		public enum TYPES {
+
+			SANDWICH("Burger King Whooper Sandwich", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I),
+			CHEESE_BURGER("Five Guys Cheese Burger", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I),
+			LIMEADE("Sonic Cherry Limeade", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I),
+			SLIDERS("White Castle Slider", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.II),
+			BURRITO("Taco Bell Burrito Supreme", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.II),
+			TACO("Taco Bell Chalupa Supreme", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.III),
+			PIZZA("Domino Pepperoni Pizza", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.III),
+			PASTA("Panera Tortellini Alfredo", COINS.COUNT.TEN_THOUSAND, HEAL.RESTORE.ULTRA, LEVELS.V);
+
+
+			private String foodName;
+			private COINS.COUNT price;
+			private HEAL.RESTORE healPower;
+			private LEVELS minimumLevelNeeded;
+
+			TYPES(String foodName, COINS.COUNT price, HEAL.RESTORE healPower, LEVELS minimumLevelNeeded) {
+				this.foodName = foodName;
+				this.price = price;
+				this.healPower = healPower;
+				this.minimumLevelNeeded = minimumLevelNeeded;
+			}
+
+			public String getFoodName() {
+				return this.foodName;
+			}
+
+			public COINS.COUNT getPrice() {
+				return this.price;
+			}
+
+			public HEAL.RESTORE getHealPower() {
+				return this.healPower;
+			}
+
+			public LEVELS getMinimumLevelNeeded() {
+				return this.minimumLevelNeeded;
 			}
 
 		}

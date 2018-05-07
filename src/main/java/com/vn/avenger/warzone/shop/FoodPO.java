@@ -5,15 +5,15 @@ import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
 
-public abstract class FirstAidPO implements PurchaseObject {
+public abstract class FoodPO implements PurchaseObject {
 
-	private static final long serialVersionUID = 8605038082668249462L;
+	private static final long serialVersionUID = 5592651677297031031L;
 
-	private ENERGY healsEnergy = ENERGY.STAMINA;
+	private ENERGY healsEnergy = ENERGY.ALL;
 
 	protected COINS.COUNT price;
 	protected HEAL.RESTORE healPower;
-	protected String firstAidName;
+	protected String foodName;
 	protected LEVELS mimimumLevelNeeded;
 
 	public ENERGY getHealsEnergy() {
@@ -28,8 +28,8 @@ public abstract class FirstAidPO implements PurchaseObject {
 		return healPower;
 	}
 
-	public String getFirstAidName() {
-		return firstAidName;
+	public String getFoodName() {
+		return foodName;
 	}
 
 	public LEVELS getMimimumLevelNeeded() {
@@ -38,8 +38,8 @@ public abstract class FirstAidPO implements PurchaseObject {
 
 	@Override
 	public String toString() {
-		return "FirstAidPO [healsEnergy=" + healsEnergy + ", price=" + price + ", healPower=" + healPower
-				+ ", firstAidName=" + firstAidName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
+		return "FoodPO [healsEnergy=" + healsEnergy + ", price=" + price + ", healPower=" + healPower + ", foodName="
+				+ foodName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
 	}
 
 }

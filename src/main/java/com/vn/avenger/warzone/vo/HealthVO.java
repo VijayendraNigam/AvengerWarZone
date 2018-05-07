@@ -1,6 +1,6 @@
 package com.vn.avenger.warzone.vo;
 
-import com.vn.avenger.warzone.common.constants.Enums.HEALTH;
+import com.vn.avenger.warzone.common.constants.Enums.HEALTH_VO;
 
 public class HealthVO implements ValueObject {
 
@@ -8,12 +8,21 @@ public class HealthVO implements ValueObject {
 
 	private int maximumHealth;
 	private int currentHealth;
+	private int maximumStrength;
+	private int currentStrength;
+	private int maximumStamina;
+	private int currentStamina;
 	private boolean isAlive;
 
 	public HealthVO() {
-		this.maximumHealth = HEALTH.MAXIMUM_RANGE.LEVEL_I.getHealth();
-		this.currentHealth = HEALTH.MAXIMUM_RANGE.LEVEL_I.getHealth();
-		this.isAlive = HEALTH.STATUS.ALIVE.getStatus();
+		this.maximumHealth = HEALTH_VO.HEALTH.LEVEL_I.getHealth();
+		this.currentHealth = HEALTH_VO.HEALTH.LEVEL_I.getHealth();
+		this.maximumStrength = HEALTH_VO.STRENGTH.LEVEL_I.getStrength();
+		this.currentStrength = HEALTH_VO.STRENGTH.LEVEL_I.getStrength();
+		this.maximumStamina = HEALTH_VO.STAMINA.LEVEL_I.getStamina();
+		this.currentStamina = HEALTH_VO.STAMINA.LEVEL_I.getStamina();
+
+		this.isAlive = HEALTH_VO.STATUS.ALIVE.getStatus();
 	}
 
 	public int getMaximumHealth() {
@@ -43,10 +52,40 @@ public class HealthVO implements ValueObject {
 		return this;
 	}
 
-	@Override
-	public String toString() {
-		return "HealthVO [maximumHealth=" + maximumHealth + ", currentHealth=" + currentHealth + ", isAlive=" + isAlive
-				+ "]";
+	public int getMaximumStrength() {
+		return maximumStrength;
+	}
+
+	public HealthVO setMaximumStrength(int maximumStrength) {
+		this.maximumStrength = maximumStrength;
+		return this;
+	}
+
+	public int getCurrentStrength() {
+		return currentStrength;
+	}
+
+	public HealthVO setCurrentStrength(int currentStrength) {
+		this.currentStrength = currentStrength;
+		return this;
+	}
+
+	public int getMaximumStamina() {
+		return maximumStamina;
+	}
+
+	public HealthVO setMaximumStamina(int maximumStamina) {
+		this.maximumStamina = maximumStamina;
+		return this;
+	}
+
+	public int getCurrentStamina() {
+		return currentStamina;
+	}
+
+	public HealthVO setCurrentStamina(int currentStamina) {
+		this.currentStamina = currentStamina;
+		return this;
 	}
 
 }
