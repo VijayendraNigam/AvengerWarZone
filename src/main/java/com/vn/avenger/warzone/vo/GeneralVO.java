@@ -9,16 +9,17 @@ public class GeneralVO implements ValueObject {
 
 	private static final long serialVersionUID = -412404482015403430L;
 
-	private LEVELS level;
-	private String playerName;
 	private int xp;
+	private LEVELS level;
 	private int xpNeeded;
-	private Date loginDate;
+	private String playerName;
+	private Date lastLoginDate;
+	private Date accountCreatedOn;
 
 	public GeneralVO() {
-		this.level = LEVELS.I;
-		this.loginDate = new Date();
 		this.xp = 0;
+		this.level = LEVELS.I;
+		this.lastLoginDate = new Date();
 		this.xpNeeded = XP.NEEDED.LEVEL_I.getPoints();
 	}
 
@@ -40,15 +41,6 @@ public class GeneralVO implements ValueObject {
 		return this;
 	}
 
-	public Date getLoginDate() {
-		return loginDate;
-	}
-
-	public GeneralVO setLoginDate(Date loginDate) {
-		this.loginDate = loginDate;
-		return this;
-	}
-
 	public int getXp() {
 		return xp;
 	}
@@ -67,10 +59,28 @@ public class GeneralVO implements ValueObject {
 		return this;
 	}
 
+	public Date getLastLoginDate() {
+		return lastLoginDate;
+	}
+
+	public GeneralVO setLastLoginDate(Date lastLoginDate) {
+		this.lastLoginDate = lastLoginDate;
+		return this;
+	}
+
+	public Date getAccountCreatedOn() {
+		return accountCreatedOn;
+	}
+
+	public GeneralVO setAccountCreatedOn(Date accountCreatedOn) {
+		this.accountCreatedOn = accountCreatedOn;
+		return this;
+	}
+
 	@Override
 	public String toString() {
-		return "GeneralVO [level=" + level + ", playerName=" + playerName + ", xp=" + xp + ", xpNeeded=" + xpNeeded
-				+ ", loginDate=" + loginDate + "]";
+		return "GeneralVO [xp=" + xp + ", level=" + level + ", xpNeeded=" + xpNeeded + ", playerName=" + playerName
+				+ ", lastLoginDate=" + lastLoginDate + ", accountCreatedOn=" + accountCreatedOn + "]";
 	}
 
 }
