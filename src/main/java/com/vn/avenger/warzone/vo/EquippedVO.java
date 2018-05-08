@@ -1,8 +1,13 @@
 package com.vn.avenger.warzone.vo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import com.vn.avenger.warzone.common.Factory;
+import com.vn.avenger.warzone.common.constants.Enums.ABSTRACT_FACTORY.FACTORY;
+import com.vn.avenger.warzone.common.constants.Enums.ARSENAL;
+import com.vn.avenger.warzone.common.impl.factory.AbstractFactory;
 import com.vn.avenger.warzone.shop.ArsenalPO;
 import com.vn.avenger.warzone.shop.FirstAidPO;
 import com.vn.avenger.warzone.shop.GearPO;
@@ -20,7 +25,10 @@ public class EquippedVO implements ValueObject {
 	private List<PotionPO> potions;
 
 	public EquippedVO() {
-		this.arsenals = new ArrayList<>();
+
+		Factory<ArsenalPO, ARSENAL.TYPES> arsenalfactory = AbstractFactory.getFactory(FACTORY.ARSENAL);
+
+		this.arsenals = new ArrayList<>(Arrays.asList(arsenalfactory.get(ARSENAL.TYPES.FISTS)));
 		this.gears = new ArrayList<>();
 		this.firstAids = new ArrayList<>();
 		this.instaHealths = new ArrayList<>();
