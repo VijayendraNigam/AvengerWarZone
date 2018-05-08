@@ -16,19 +16,19 @@ public class FoodFactory implements Factory<FoodPO, FOOD.TYPES> {
 
 	@Override
 	public FoodPO get(FOOD.TYPES food) {
-		
+
 		switch (food) {
-		
-		case SANDWICH:		return new Sandwich();
-		case CHEESE_BURGER:	return new CheeseBurger();
-		case LIMEADE:		return new Limeade();
-		case SLIDERS:		return new Sliders();
-		case BURRITO:		return new Burrito();
-		case TACO:			return new Taco();
-		case PIZZA:			return new Pizza();
-		case PASTA:			return new Pasta();
-		default:				return new Sandwich();
-		
+
+		case SANDWICH:       return new Sandwich();
+		case CHEESE_BURGER:  return new CheeseBurger();
+		case LIMEADE:        return new Limeade();
+		case SLIDERS:        return new Sliders();
+		case BURRITO:        return new Burrito();
+		case TACO:           return new Taco();
+		case PIZZA:          return new Pizza();
+		case PASTA:          return new Pasta();
+		default:             return new Sandwich();
+
 		}
 
 	}

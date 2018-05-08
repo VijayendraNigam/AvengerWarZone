@@ -13,10 +13,10 @@ public class InstaHealthFactory implements Factory<InstaHealthPO, INSTA_HEALTH.T
 
 		switch (instaHealth) {
 
-		case QUADRA:		return new QuadraInstaHealth();
-		case TEDRA:		return new TedraInstaHealth();
-		default:			return new QuadraInstaHealth();
-		
+		case QUADRA:      return new QuadraInstaHealth();
+		case TEDRA:       return new TedraInstaHealth();
+		default:          return new QuadraInstaHealth();
+
 		}
 
 	}

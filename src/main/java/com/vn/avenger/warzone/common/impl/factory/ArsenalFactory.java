@@ -19,15 +19,15 @@ public class ArsenalFactory implements Factory<ArsenalPO, ARSENAL.TYPES> {
 
 		switch (arsenal) {
 
-		case FISTS:			return new Fists();
-		case KNIFE:			return new Knife();
-		case HAMMER:			return new Hammer();
-		case CHAINSAW:		return new Chainsaw();
-		case PISTOL:			return new Pistol();
-		case SHOT_GUN:		return new Shotgun();
-		case SNIPER_RIFLE:	return new SniperRifle();
-		case ASSAULT_RIFLE:	return new AssaultRifle();
-		default:				return new Fists();
+		case FISTS:          return new Fists();
+		case KNIFE:          return new Knife();
+		case HAMMER:         return new Hammer();
+		case CHAINSAW:       return new Chainsaw();
+		case PISTOL:         return new Pistol();
+		case SHOT_GUN:       return new Shotgun();
+		case SNIPER_RIFLE:   return new SniperRifle();
+		case ASSAULT_RIFLE:  return new AssaultRifle();
+		default:             return new Fists();
 		}
 
 	}

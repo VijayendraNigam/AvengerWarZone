@@ -12,9 +12,9 @@ public class FirstAidFactory implements Factory<FirstAidPO, FIRST_AID.TYPES> {
 
 		switch (firstAid) {
 
-		case CLASSIC:	return new ClassicFirstAid();
-		default:			return new ClassicFirstAid();
-		
+		case CLASSIC:      return new ClassicFirstAid();
+		default:           return new ClassicFirstAid();
+
 		}
 	}
 

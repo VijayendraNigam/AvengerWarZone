@@ -10,13 +10,13 @@ public class PotionFactory implements Factory<PotionPO, POTIONS.TYPES> {
 
 	@Override
 	public PotionPO get(POTIONS.TYPES potion) {
-		
+
 		switch (potion) {
-		
-		case SURVIVAL:		return new SurvivalPotion();
-		case RECOVERY:		return new RecoveryPotion();
-		default:				return new SurvivalPotion();
-		
+
+		case SURVIVAL:       return new SurvivalPotion();
+		case RECOVERY:       return new RecoveryPotion();
+		default:             return new SurvivalPotion();
+
 		}
 
 	}
