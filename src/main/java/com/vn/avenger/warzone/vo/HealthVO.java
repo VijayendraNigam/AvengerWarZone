@@ -21,7 +21,6 @@ public class HealthVO implements ValueObject {
 		this.currentStrength = HEALTH_VO.STRENGTH.LEVEL_I.getStrength();
 		this.maximumStamina = HEALTH_VO.STAMINA.LEVEL_I.getStamina();
 		this.currentStamina = HEALTH_VO.STAMINA.LEVEL_I.getStamina();
-
 		this.isAlive = HEALTH_VO.STATUS.ALIVE.getStatus();
 	}
 

@@ -1,6 +1,7 @@
 package com.vn.avenger.warzone.vo;
 
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
+import com.vn.avenger.warzone.common.constants.Enums.DIAMONDS;
 
 public class CoinsVO implements ValueObject {
 
@@ -12,7 +13,7 @@ public class CoinsVO implements ValueObject {
 
 	public CoinsVO() {
 		this.coins = COINS.CREDIT.LEVEL_I.getCoins();
-		this.diamonds = 0;
+		this.diamonds = DIAMONDS.CREDIT.LEVEL_I.getDiamonds();
 		this.battleTokens = 0;
 	}
 

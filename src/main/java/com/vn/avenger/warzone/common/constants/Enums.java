@@ -226,6 +226,25 @@ public class Enums {
 	}
 	
 	public static class DIAMONDS {
+		
+		public enum CREDIT {
+
+			LEVEL_I(1), 
+			LEVEL_II(2), 
+			LEVEL_III(5), 
+			LEVEL_IV(20), 
+			LEVEL_V(100);
+
+			private int diamonds;
+
+			CREDIT(int diamonds) {
+				this.diamonds = diamonds;
+			}
+
+			public int getDiamonds() {
+				return this.diamonds;
+			}
+		}
 
 		public enum COUNT {
 
@@ -345,8 +364,29 @@ public class Enums {
 				return this.power;
 			}
 		}
-		
 	}
+	
+	public static class DAMAGE {
+		
+		public enum INJURE {
+			
+			TINY(0.10f),
+			LIGHT(0.25f), 
+			SUPER(0.50f),
+			ULTRA(0.75f);
+
+			private float injury;
+
+			INJURE(float injury) {
+				this.injury = injury;
+			}
+
+			public float getInjury() {
+				return this.injury;
+			}
+		}
+	}
+	
 	
 	public static class POTIONS {
 
@@ -391,7 +431,7 @@ public class Enums {
 
 		public enum TYPES {
 
-			QUDRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.RESTORE.SUPER, LEVELS.I), 
+			QUADRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.RESTORE.SUPER, LEVELS.I), 
 			TEDRA("Tedra", DIAMONDS.COUNT.FIVE, HEAL.RESTORE.ULTRA, LEVELS.II);
 
 
@@ -507,5 +547,70 @@ public class Enums {
 			}
 
 		}
+	}
+	
+	
+	public static class ARSENAL {
+
+		public enum TYPES {
+
+			FISTS("Fists", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.I),
+			KNIFE("Ka-Bar Knife", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.I),
+			HAMMER("Giant Hammer", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.I),
+			CHAINSAW("Chipper Teeth Chainsaw", COINS.COUNT.HUNDRED, DAMAGE.INJURE.LIGHT, LEVELS.II),
+			PISTOL("", COINS.COUNT.HUNDRED, DAMAGE.INJURE.LIGHT, LEVELS.II),
+			SHOT_GUN("", COINS.COUNT.THOUSAND, DAMAGE.INJURE.SUPER, LEVELS.III),
+			SNIPER_RIFLE("", COINS.COUNT.THOUSAND, DAMAGE.INJURE.SUPER, LEVELS.III),
+			ASSAULT_RIFLE("", COINS.COUNT.TEN_THOUSAND, DAMAGE.INJURE.ULTRA, LEVELS.V);
+
+
+			private String arsenalName;
+			private COINS.COUNT price;
+			private DAMAGE.INJURE injurePower;
+			private LEVELS minimumLevelNeeded;
+
+			TYPES(String arsenalName, COINS.COUNT price, DAMAGE.INJURE injurePower, LEVELS minimumLevelNeeded) {
+				this.arsenalName = arsenalName;
+				this.price = price;
+				this.injurePower = injurePower;
+				this.minimumLevelNeeded = minimumLevelNeeded;
+			}
+
+			public String getArsenalName() {
+				return arsenalName;
+			}
+
+			public COINS.COUNT getPrice() {
+				return price;
+			}
+
+			public DAMAGE.INJURE getInjurePower() {
+				return injurePower;
+			}
+
+			public LEVELS getMinimumLevelNeeded() {
+				return minimumLevelNeeded;
+			}
+
+		}
+	}
+	
+	public static class ABSTRACT_FACTORY {
+		
+		public enum FACTORY {
+			
+			HERO,
+			MONSTER,
+			
+			ARSENAL,
+			GEAR,
+			POTION,
+			FIRST_AID,
+			INSTA_HEALTH,
+			
+			FOOD;
+			
+		}
+		
 	}
 }

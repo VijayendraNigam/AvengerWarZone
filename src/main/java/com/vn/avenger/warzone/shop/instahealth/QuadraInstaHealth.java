@@ -9,9 +9,9 @@ public final class QuadraInstaHealth extends InstaHealthPO implements Immutable 
 	private static final long serialVersionUID = 5229297897151145779L;
 
 	public QuadraInstaHealth() {
-		this.price = INSTA_HEALTH.TYPES.QUDRA.getPrice();
-		this.healPower = INSTA_HEALTH.TYPES.QUDRA.getHealPower();
-		this.instaHealthName = INSTA_HEALTH.TYPES.QUDRA.getInstaHealthName();
-		this.mimimumLevelNeeded = INSTA_HEALTH.TYPES.QUDRA.getMinimumLevelNeeded();
+		this.price = INSTA_HEALTH.TYPES.QUADRA.getPrice();
+		this.healPower = INSTA_HEALTH.TYPES.QUADRA.getHealPower();
+		this.instaHealthName = INSTA_HEALTH.TYPES.QUADRA.getInstaHealthName();
+		this.mimimumLevelNeeded = INSTA_HEALTH.TYPES.QUADRA.getMinimumLevelNeeded();
 	}
 }
