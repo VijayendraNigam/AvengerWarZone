@@ -11,8 +11,8 @@ public class LifeVO implements ValueObject {
 	private int noOfTimesDied;
 
 	public LifeVO() {
-		this.maximumLifes = LIFE.DEFAULT_COUNT.LEVEL_I.getCount();
-		this.currentLifes = LIFE.DEFAULT_COUNT.LEVEL_I.getCount();
+		this.maximumLifes = LIFE.DEFAULT_COUNT.LEVEL_1.getCount();
+		this.currentLifes = LIFE.DEFAULT_COUNT.LEVEL_1.getCount();
 		this.noOfTimesDied = 0;
 	}
 

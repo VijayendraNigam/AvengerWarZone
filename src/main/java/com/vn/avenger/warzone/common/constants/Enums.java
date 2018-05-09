@@ -8,8 +8,8 @@ public class Enums {
 
 		public enum HERO {
 
-			THOR("THOR"), 
-			CAPTAIN_AMERICA("CAPTAIN AMERICA");
+			THOR("Thor"), 
+			CAPTAIN_AMERICA("Captain America");
 
 			private String heroName;
 
@@ -24,8 +24,8 @@ public class Enums {
 
 		public enum MONSTER {
 
-			LOKI("LOKI"), 
-			RED_SKULL("RED SKULL");
+			LOKI("Loki"), 
+			RED_SKULL("Red Skull");
 
 			private String monsterName;
 
@@ -43,11 +43,11 @@ public class Enums {
 
 		public enum HEALTH {
 
-			LEVEL_I(100), 
-			LEVEL_II(200), 
-			LEVEL_III(500), 
-			LEVEL_IV(1000), 
-			LEVEL_V(1000000);
+			LEVEL_1(100), 
+			LEVEL_2(200), 
+			LEVEL_3(500), 
+			LEVEL_4(1000), 
+			LEVEL_5(100000);
 
 			private int health;
 
@@ -62,11 +62,11 @@ public class Enums {
 		
 		public enum STRENGTH {
 
-			LEVEL_I(100), 
-			LEVEL_II(200), 
-			LEVEL_III(500), 
-			LEVEL_IV(1000), 
-			LEVEL_V(1000000);
+			LEVEL_1(100), 
+			LEVEL_2(200), 
+			LEVEL_3(500), 
+			LEVEL_4(1000), 
+			LEVEL_5(100000);
 
 			private int strength;
 
@@ -81,11 +81,11 @@ public class Enums {
 		
 		public enum STAMINA {
 
-			LEVEL_I(100), 
-			LEVEL_II(200), 
-			LEVEL_III(500), 
-			LEVEL_IV(1000), 
-			LEVEL_V(1000000);
+			LEVEL_1(100), 
+			LEVEL_2(200), 
+			LEVEL_3(500), 
+			LEVEL_4(1000), 
+			LEVEL_5(100000);
 
 			private int stamina;
 
@@ -120,11 +120,11 @@ public class Enums {
 
 		public enum LEVELS {
 
-			I(1), 
-			II(2), 
-			III(3), 
-			IV(4), 
-			V(5);
+			LEVEL_1(1), 
+			LEVEL_2(2), 
+			LEVEL_3(3), 
+			LEVEL_4(4), 
+			LEVEL_5(5);
 
 			private int level;
 
@@ -143,11 +143,11 @@ public class Enums {
 
 		public enum DEFAULT_COUNT {
 
-			LEVEL_I(1), 
-			LEVEL_II(2), 
-			LEVEL_III(3), 
-			LEVEL_IV(10), 
-			LEVEL_V(20);
+			LEVEL_1(1), 
+			LEVEL_2(2), 
+			LEVEL_3(3), 
+			LEVEL_4(10), 
+			LEVEL_5(20);
 			
 			private int count;
 
@@ -165,11 +165,11 @@ public class Enums {
 
 		public enum NEEDED {
 
-			LEVEL_I(100), 
-			LEVEL_II(200), 
-			LEVEL_III(1000), 
-			LEVEL_IV(25000), 
-			LEVEL_V(1000000);
+			LEVEL_1(100), 
+			LEVEL_2(200), 
+			LEVEL_3(1000), 
+			LEVEL_4(25000), 
+			LEVEL_5(100000);
 
 			private int points;
 
@@ -187,11 +187,11 @@ public class Enums {
 
 		public enum CREDIT {
 
-			LEVEL_I(100), 
-			LEVEL_II(200), 
-			LEVEL_III(1000), 
-			LEVEL_IV(25000), 
-			LEVEL_V(1000000);
+			LEVEL_1(100), 
+			LEVEL_2(200), 
+			LEVEL_3(1000), 
+			LEVEL_4(25000), 
+			LEVEL_5(100000);
 
 			private int coins;
 
@@ -229,11 +229,11 @@ public class Enums {
 		
 		public enum CREDIT {
 
-			LEVEL_I(1), 
-			LEVEL_II(2), 
-			LEVEL_III(5), 
-			LEVEL_IV(20), 
-			LEVEL_V(100);
+			LEVEL_1(1), 
+			LEVEL_2(2), 
+			LEVEL_3(5), 
+			LEVEL_4(20), 
+			LEVEL_5(100);
 
 			private int diamonds;
 
@@ -292,49 +292,44 @@ public class Enums {
 
 		public enum BADGES {
 
-			FIRST_WIN("FIRST WIN"),
+			EVERYONE_SUCKS("EVERYONE SUCKS", "Die"),
+			FIRST_WIN("FIRST WIN", "Kill one monster"),
 			
-			THREE_IN_A_ROW("3 IN A ROW"),
-			FIVE_IN_A_ROW("5 IN A ROW"),
-			SEVEN_IN_A_ROW("7 IN A ROW"),
+			THREE_IN_A_ROW("3 IN A ROW", "Kill 3 monsters in 1 streak"),
+			FIVE_IN_A_ROW("5 IN A ROW", "Kill 5 monsters in 1 streak"),
+			SEVEN_IN_A_ROW("7 IN A ROW", "Kill 7 monsters in 1 streak"),
 			
-			LEVEL_I_FIGHTER("LEVEL 1 FIGHTER"),
-			LEVEL_II_FIGHTER("LEVEL 2 FIGHTER"),
-			LEVEL_III_FIGHTER("LEVEL 3 FIGHTER"),
-			LEVEL_IV_FIGHTER("LEVEL 4 FIGHTER"),
-			LEVEL_V_FIGHTER("LEVEL 5 FIGHTER"),
+			LEVEL_2_FIGHTER("LEVEL 2 FIGHTER", "Reach Level 2"),
+			LEVEL_3_FIGHTER("LEVEL 3 FIGHTER", "Reach Level 3"),
+			LEVEL_4_FIGHTER("LEVEL 4 FIGHTER", "Reach Level 4"),
+			LEVEL_5_FIGHTER("LEVEL 5 FIGHTER", "Reach Level 5"),
 			
-			GAME_ADDICT("GAME ADDICT"),
-			GAMBLING_ADDICT("GAMBLING ADDICT"),
-			SHOPPING_ADDICT("SHOPPING ADDICT"),
+			GAME_ADDICT("GAME ADDICT", "Play game more than 10 times in a day"),
+			GAMBLING_ADDICT("GAMBLING ADDICT", "Gamble more than 20 times"),
+			SHOPPING_ADDICT("SHOPPING ADDICT", "Purchase items worth 10000 coins"),
+			POWER_ADDICT("POWER ADDICT", "Use 5 POWERS in a game"),
+			MONEY_MAKER("MONEY MAKER", "Win 5000 coins in gambling"),
 			
-			COPPER_RAVEN("COPPER RAVEN"),
-			SILVER_RAVEN("SILVER RAVEN"),
-			GOLD_RAVEN("GOLD RAVEN"),
-			
-			COPPER_WOLF("COPPER WOLF"),
-			SILVER_WOLF("SILVER WOLF"),
-			GOLD_WOLF("GOLD WOLF"),
-			
-			COPPER_LION("COPPER LION"),
-			SILVER_LION("SILVER LION"),
-			GOLD_LION("GOLD LION"),
-			
-			COPPER_SKULL("COPPER SKULL"),
-			SILVER_SKULL("SILVER SKULL"),
-			GOLD_SKULL("GOLD SKULL"),
+			AVENGER_WARZONE_MASTER("AVENGER WARZONE MASTER", "Unlock all achievements")
 			
 			;
 
 			private String badgeName;
+			private String description;
 
-			BADGES(String badgeName) {
+			BADGES(String badgeName, String description) {
 				this.badgeName = badgeName;
+				this.description = description;
 			}
 
 			public String getBadgeName() {
 				return this.badgeName;
 			}
+			
+			public String getDescription() {
+				return this.description;
+			}
+			
 		}
 	}
 	
@@ -392,8 +387,8 @@ public class Enums {
 
 		public enum TYPES {
 
-			SURVIVAL("Survival", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.I), 
-			RECOVERY("Recovery", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.II);
+			SURVIVAL("Survival", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_1), 
+			RECOVERY("Recovery", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.LEVEL_2);
 
 
 			private String potionName;
@@ -431,8 +426,8 @@ public class Enums {
 
 		public enum TYPES {
 
-			QUADRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.RESTORE.SUPER, LEVELS.I), 
-			TEDRA("Tedra", DIAMONDS.COUNT.FIVE, HEAL.RESTORE.ULTRA, LEVELS.II);
+			QUADRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.RESTORE.SUPER, LEVELS.LEVEL_1), 
+			TEDRA("Tedra", DIAMONDS.COUNT.FIVE, HEAL.RESTORE.ULTRA, LEVELS.LEVEL_2);
 
 
 			private String instaHealthName;
@@ -470,7 +465,7 @@ public class Enums {
 
 		public enum TYPES {
 
-			CLASSIC("Classic", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I);
+			CLASSIC("Classic", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.LEVEL_1);
 
 
 			private String firstAidName;
@@ -508,14 +503,14 @@ public class Enums {
 
 		public enum TYPES {
 
-			SANDWICH("Burger King Whooper Sandwich", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I),
-			CHEESE_BURGER("Five Guys Cheese Burger", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I),
-			LIMEADE("Sonic Cherry Limeade", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.I),
-			SLIDERS("White Castle Slider", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.II),
-			BURRITO("Taco Bell Burrito Supreme", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.II),
-			TACO("Taco Bell Chalupa Supreme", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.III),
-			PIZZA("Domino Pepperoni Pizza", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.III),
-			PASTA("Panera Tortellini Alfredo", COINS.COUNT.TEN_THOUSAND, HEAL.RESTORE.ULTRA, LEVELS.V);
+			SANDWICH("Burger King Whooper Sandwich", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.LEVEL_1),
+			CHEESE_BURGER("Five Guys Cheese Burger", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.LEVEL_1),
+			LIMEADE("Sonic Cherry Limeade", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.LEVEL_1),
+			SLIDERS("White Castle Slider", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_2),
+			BURRITO("Taco Bell Burrito Supreme", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_2),
+			TACO("Taco Bell Chalupa Supreme", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.LEVEL_3),
+			PIZZA("Domino Pepperoni Pizza", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.LEVEL_3),
+			PASTA("Panera Tortellini Alfredo", COINS.COUNT.TEN_THOUSAND, HEAL.RESTORE.ULTRA, LEVELS.LEVEL_5);
 
 
 			private String foodName;
@@ -554,14 +549,14 @@ public class Enums {
 
 		public enum TYPES {
 
-			FISTS("Fists", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.I),
-			KNIFE("Ka-Bar Knife", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.I),
-			HAMMER("Giant Hammer", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.I),
-			CHAINSAW("Chipper Teeth Chainsaw", COINS.COUNT.HUNDRED, DAMAGE.INJURE.LIGHT, LEVELS.II),
-			PISTOL("", COINS.COUNT.HUNDRED, DAMAGE.INJURE.LIGHT, LEVELS.II),
-			SHOT_GUN("", COINS.COUNT.THOUSAND, DAMAGE.INJURE.SUPER, LEVELS.III),
-			SNIPER_RIFLE("", COINS.COUNT.THOUSAND, DAMAGE.INJURE.SUPER, LEVELS.III),
-			ASSAULT_RIFLE("", COINS.COUNT.TEN_THOUSAND, DAMAGE.INJURE.ULTRA, LEVELS.V);
+			FISTS("Fists", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.LEVEL_1),
+			KNIFE("Ka-Bar Knife", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.LEVEL_1),
+			HAMMER("Giant Hammer", COINS.COUNT.TEN, DAMAGE.INJURE.TINY, LEVELS.LEVEL_1),
+			CHAINSAW("Chipper Teeth Chainsaw", COINS.COUNT.HUNDRED, DAMAGE.INJURE.LIGHT, LEVELS.LEVEL_2),
+			PISTOL("Desert Eagle Pistol", COINS.COUNT.HUNDRED, DAMAGE.INJURE.LIGHT, LEVELS.LEVEL_2),
+			SHOT_GUN("M26 Mass Shotgun", COINS.COUNT.THOUSAND, DAMAGE.INJURE.SUPER, LEVELS.LEVEL_3),
+			SNIPER_RIFLE("Dragunov SVC Sniper Rifle", COINS.COUNT.THOUSAND, DAMAGE.INJURE.SUPER, LEVELS.LEVEL_3),
+			ASSAULT_RIFLE("Bushmaster ACR Assualt Rifle", COINS.COUNT.TEN_THOUSAND, DAMAGE.INJURE.ULTRA, LEVELS.LEVEL_5);
 
 
 			private String arsenalName;

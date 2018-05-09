@@ -12,8 +12,8 @@ public class CoinsVO implements ValueObject {
 	private int battleTokens;
 
 	public CoinsVO() {
-		this.coins = COINS.CREDIT.LEVEL_I.getCoins();
-		this.diamonds = DIAMONDS.CREDIT.LEVEL_I.getDiamonds();
+		this.coins = COINS.CREDIT.LEVEL_1.getCoins();
+		this.diamonds = DIAMONDS.CREDIT.LEVEL_1.getDiamonds();
 		this.battleTokens = 0;
 	}
 

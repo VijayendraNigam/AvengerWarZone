@@ -15,12 +15,12 @@ public class HealthVO implements ValueObject {
 	private boolean isAlive;
 
 	public HealthVO() {
-		this.maximumHealth = HEALTH_VO.HEALTH.LEVEL_I.getHealth();
-		this.currentHealth = HEALTH_VO.HEALTH.LEVEL_I.getHealth();
-		this.maximumStrength = HEALTH_VO.STRENGTH.LEVEL_I.getStrength();
-		this.currentStrength = HEALTH_VO.STRENGTH.LEVEL_I.getStrength();
-		this.maximumStamina = HEALTH_VO.STAMINA.LEVEL_I.getStamina();
-		this.currentStamina = HEALTH_VO.STAMINA.LEVEL_I.getStamina();
+		this.maximumHealth = HEALTH_VO.HEALTH.LEVEL_1.getHealth();
+		this.currentHealth = HEALTH_VO.HEALTH.LEVEL_1.getHealth();
+		this.maximumStrength = HEALTH_VO.STRENGTH.LEVEL_1.getStrength();
+		this.currentStrength = HEALTH_VO.STRENGTH.LEVEL_1.getStrength();
+		this.maximumStamina = HEALTH_VO.STAMINA.LEVEL_1.getStamina();
+		this.currentStamina = HEALTH_VO.STAMINA.LEVEL_1.getStamina();
 		this.isAlive = HEALTH_VO.STATUS.ALIVE.getStatus();
 	}
 

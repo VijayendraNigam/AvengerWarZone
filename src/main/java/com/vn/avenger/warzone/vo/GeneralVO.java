@@ -18,9 +18,9 @@ public class GeneralVO implements ValueObject {
 
 	public GeneralVO() {
 		this.xp = 0;
-		this.level = LEVELS.I;
+		this.level = LEVELS.LEVEL_1;
 		this.lastLoginDate = new Date();
-		this.xpNeeded = XP.NEEDED.LEVEL_I.getPoints();
+		this.xpNeeded = XP.NEEDED.LEVEL_1.getPoints();
 	}
 
 	public LEVELS getLevel() {
