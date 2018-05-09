@@ -1,5 +1,7 @@
 package com.vn.avenger.warzone.shop;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 import com.vn.avenger.warzone.common.CollectionAdaptor;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
 import com.vn.avenger.warzone.common.constants.Enums.DAMAGE;
@@ -78,6 +80,25 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 	public String toString() {
 		return "ArsenalPO [damageEnergy=" + damageEnergy + ", price=" + price + ", injurePower=" + injurePower
 				+ ", arsenalName=" + arsenalName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
+	}
+	
+	@Override
+	public String render() {
+
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                       Arsenal                        |").append(NEWLINE);
+		screen.append("|______________________________________________________|").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|  Name         : ").append(this.arsenalName).append(NEWLINE);
+		screen.append("|  Price        : ").append(this.price.getValue()).append(" coins").append(NEWLINE);
+		screen.append("|  Injure Power : ").append(this.injurePower.getInjury()).append(" %").append(NEWLINE);
+		screen.append("|  Level Needed : ").append("Level_").append(this.mimimumLevelNeeded.getLevel()).append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
 	}
 
 }

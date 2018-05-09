@@ -14,4 +14,5 @@ public final class Taco extends FoodPO implements Immutable {
 		this.foodName = FOOD.TYPES.TACO.getFoodName();
 		this.mimimumLevelNeeded = FOOD.TYPES.TACO.getMinimumLevelNeeded();
 	}
+	
 }

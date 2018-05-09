@@ -1,5 +1,7 @@
 package com.vn.avenger.warzone.shop;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 import com.vn.avenger.warzone.common.CollectionAdaptor;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
@@ -78,6 +80,25 @@ public abstract class PotionPO extends CollectionAdaptor implements PurchaseObje
 	public String toString() {
 		return "PotionPO [healsEnergy=" + healsEnergy + ", price=" + price + ", healPower=" + healPower
 				+ ", potionName=" + potionName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
+	}
+
+	@Override
+	public String render() {
+
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                      Potion                          |").append(NEWLINE);
+		screen.append("|______________________________________________________|").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|  Name         : ").append(this.potionName).append(NEWLINE);
+		screen.append("|  Price        : ").append(this.price.getValue()).append(" coins").append(NEWLINE);
+		screen.append("|  Heal Power   : ").append(this.healPower.getPower()).append(" %").append(NEWLINE);
+		screen.append("|  Level Needed : ").append("Level_").append(this.mimimumLevelNeeded.getLevel()).append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
 	}
 
 }

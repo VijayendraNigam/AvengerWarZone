@@ -14,4 +14,5 @@ public final class TedraInstaHealth extends InstaHealthPO implements Immutable {
 		this.instaHealthName = INSTA_HEALTH.TYPES.TEDRA.getInstaHealthName();
 		this.mimimumLevelNeeded = INSTA_HEALTH.TYPES.TEDRA.getMinimumLevelNeeded();
 	}
+
 }
