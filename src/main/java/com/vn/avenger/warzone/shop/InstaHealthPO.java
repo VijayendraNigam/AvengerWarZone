@@ -3,9 +3,10 @@ package com.vn.avenger.warzone.shop;
 import static com.vn.avenger.warzone.common.Helper.NEWLINE;
 
 import com.vn.avenger.warzone.common.CollectionAdaptor;
-import com.vn.avenger.warzone.common.constants.Enums.DIAMONDS;
+import com.vn.avenger.warzone.common.constants.Enums.COINS;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL;
+import com.vn.avenger.warzone.common.constants.Enums.COINS.COUNT;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
 
 public abstract class InstaHealthPO extends CollectionAdaptor implements PurchaseObject {
@@ -14,29 +15,34 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 
 	private ENERGY healsEnergy = ENERGY.HEALTH;
 
-	protected DIAMONDS.COUNT price;
+	protected COINS.COUNT price;
 	protected HEAL.RESTORE healPower;
 	protected String instaHealthName;
 	protected LEVELS mimimumLevelNeeded;
 
-	public ENERGY getHealsEnergy() {
-		return healsEnergy;
+	@Override
+	public String getName() {
+		return this.instaHealthName;
 	}
 
-	public DIAMONDS.COUNT getPrice() {
-		return price;
+	@Override
+	public COUNT getPrice() {
+		return this.price;
 	}
 
-	public HEAL.RESTORE getHealPower() {
-		return healPower;
+	@Override
+	public float getPower() {
+		return this.healPower.getPower();
 	}
 
-	public String getInstaHealthName() {
-		return instaHealthName;
+	@Override
+	public ENERGY getEnergy() {
+		return this.healsEnergy;
 	}
 
+	@Override
 	public LEVELS getMimimumLevelNeeded() {
-		return mimimumLevelNeeded;
+		return this.mimimumLevelNeeded;
 	}
 
 	@Override
@@ -93,9 +99,9 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 		screen.append("|______________________________________________________|").append(NEWLINE);
 		screen.append("|                                                       ").append(NEWLINE);
 		screen.append("|  Name         : ").append(this.instaHealthName).append(NEWLINE);
-		screen.append("|  Price        : ").append(this.price.getValue()).append(" diamonds").append(NEWLINE);
+		screen.append("|  Price        : ").append(this.price.getCoins()).append(" coins").append(NEWLINE);
 		screen.append("|  Heal Power   : ").append(this.healPower.getPower()).append(" %").append(NEWLINE);
-		screen.append("|  Level Needed : ").append("Level_").append(this.mimimumLevelNeeded.getLevel()).append(NEWLINE);
+		screen.append("|  Level Needed : ").append("Level_").append(this.mimimumLevelNeeded.getValue()).append(NEWLINE);
 		screen.append("|_______________________________________________________").append(NEWLINE);
 
 		return screen.toString();

@@ -4,6 +4,7 @@ import static com.vn.avenger.warzone.common.Helper.NEWLINE;
 
 import com.vn.avenger.warzone.common.CollectionAdaptor;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
+import com.vn.avenger.warzone.common.constants.Enums.COINS.COUNT;
 import com.vn.avenger.warzone.common.constants.Enums.DAMAGE;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
@@ -19,24 +20,29 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 	protected String arsenalName;
 	protected LEVELS mimimumLevelNeeded;
 
-	public ENERGY getDamageEnergy() {
-		return damageEnergy;
+	@Override
+	public String getName() {
+		return this.arsenalName;
 	}
 
-	public COINS.COUNT getPrice() {
-		return price;
+	@Override
+	public COUNT getPrice() {
+		return this.price;
 	}
 
-	public DAMAGE.INJURE getInjurePower() {
-		return injurePower;
+	@Override
+	public float getPower() {
+		return this.injurePower.getInjury();
 	}
 
-	public String getArsenalName() {
-		return arsenalName;
+	@Override
+	public ENERGY getEnergy() {
+		return this.damageEnergy;
 	}
 
+	@Override
 	public LEVELS getMimimumLevelNeeded() {
-		return mimimumLevelNeeded;
+		return this.mimimumLevelNeeded;
 	}
 
 	@Override
@@ -81,7 +87,7 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 		return "ArsenalPO [damageEnergy=" + damageEnergy + ", price=" + price + ", injurePower=" + injurePower
 				+ ", arsenalName=" + arsenalName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
 	}
-	
+
 	@Override
 	public String render() {
 
@@ -93,9 +99,9 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 		screen.append("|______________________________________________________|").append(NEWLINE);
 		screen.append("|                                                       ").append(NEWLINE);
 		screen.append("|  Name         : ").append(this.arsenalName).append(NEWLINE);
-		screen.append("|  Price        : ").append(this.price.getValue()).append(" coins").append(NEWLINE);
+		screen.append("|  Price        : ").append(this.price.getCoins()).append(" coins").append(NEWLINE);
 		screen.append("|  Injure Power : ").append(this.injurePower.getInjury()).append(" %").append(NEWLINE);
-		screen.append("|  Level Needed : ").append("Level_").append(this.mimimumLevelNeeded.getLevel()).append(NEWLINE);
+		screen.append("|  Level Needed : ").append("Level_").append(this.mimimumLevelNeeded.getValue()).append(NEWLINE);
 		screen.append("|_______________________________________________________").append(NEWLINE);
 
 		return screen.toString();

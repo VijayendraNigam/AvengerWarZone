@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.vn.avenger.warzone.common.Digest;
 import com.vn.avenger.warzone.common.Factory;
 import com.vn.avenger.warzone.common.constants.Enums.ABSTRACT_FACTORY.FACTORY;
 import com.vn.avenger.warzone.common.constants.Enums.ARSENAL;
@@ -13,8 +14,9 @@ import com.vn.avenger.warzone.shop.FirstAidPO;
 import com.vn.avenger.warzone.shop.GearPO;
 import com.vn.avenger.warzone.shop.InstaHealthPO;
 import com.vn.avenger.warzone.shop.PotionPO;
+import com.vn.avenger.warzone.shop.PurchaseObject;
 
-public class EquippedVO implements ValueObject {
+public class EquippedVO implements ValueObject, Digest<PurchaseObject> {
 
 	private static final long serialVersionUID = 1650687719962801826L;
 
@@ -33,6 +35,27 @@ public class EquippedVO implements ValueObject {
 		this.firstAids = new ArrayList<>();
 		this.instaHealths = new ArrayList<>();
 		this.potions = new ArrayList<>();
+	}
+
+	@Override
+	public void digest(PurchaseObject purchaseObject) {
+
+		if (purchaseObject instanceof ArsenalPO) {
+			this.arsenals.add((ArsenalPO) purchaseObject);
+
+		} else if (purchaseObject instanceof GearPO) {
+			this.gears.add((GearPO) purchaseObject);
+
+		} else if (purchaseObject instanceof FirstAidPO) {
+			this.firstAids.add((FirstAidPO) purchaseObject);
+
+		} else if (purchaseObject instanceof InstaHealthPO) {
+			this.instaHealths.add((InstaHealthPO) purchaseObject);
+
+		} else if (purchaseObject instanceof PotionPO) {
+			this.potions.add((PotionPO) purchaseObject);
+
+		}
 	}
 
 	public List<ArsenalPO> getArsenals() {

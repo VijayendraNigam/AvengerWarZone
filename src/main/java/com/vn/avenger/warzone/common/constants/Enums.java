@@ -126,14 +126,14 @@ public class Enums {
 			LEVEL_4(4), 
 			LEVEL_5(5);
 
-			private int level;
+			private int value;
 
-			LEVELS(int level) {
-				this.level = level;
+			LEVELS(int value) {
+				this.value = value;
 			}
 
-			public int getLevel() {
-				return this.level;
+			public int getValue() {
+				return this.value;
 			}
 
 		}
@@ -213,14 +213,14 @@ public class Enums {
 			MILLION(1000000),
 			TRILLION(1000000000);
 
-			private int value;
+			private int coins;
 
-			COUNT(int value) {
-				this.value = value;
+			COUNT(int coins) {
+				this.coins = coins;
 			}
 
-			public int getValue() {
-				return this.value;
+			public int getCoins() {
+				return this.coins;
 			}
 		}
 	}
@@ -255,14 +255,14 @@ public class Enums {
 			HUNDRED(100),
 			THOUSAND(1000);
 
-			private int value;
+			private int diamonds;
 
-			COUNT(int value) {
-				this.value = value;
+			COUNT(int diamonds) {
+				this.diamonds = diamonds;
 			}
 
-			public int getValue() {
-				return this.value;
+			public int getDiamonds() {
+				return this.diamonds;
 			}
 		}
 	}
@@ -387,7 +387,7 @@ public class Enums {
 
 		public enum TYPES {
 
-			SURVIVAL("Survival", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_1), 
+			SURVIVAL("Survival", COINS.COUNT.TEN, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_1), 
 			RECOVERY("Recovery", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.LEVEL_2);
 
 
@@ -426,16 +426,16 @@ public class Enums {
 
 		public enum TYPES {
 
-			QUADRA("Quadra", DIAMONDS.COUNT.ONE, HEAL.RESTORE.SUPER, LEVELS.LEVEL_1), 
-			TEDRA("Tedra", DIAMONDS.COUNT.FIVE, HEAL.RESTORE.ULTRA, LEVELS.LEVEL_2);
+			QUADRA("Quadra", COINS.COUNT.HUNDRED, HEAL.RESTORE.SUPER, LEVELS.LEVEL_1), 
+			TEDRA("Tedra", COINS.COUNT.THOUSAND, HEAL.RESTORE.ULTRA, LEVELS.LEVEL_2);
 
 
 			private String instaHealthName;
-			private DIAMONDS.COUNT price;
+			private COINS.COUNT price;
 			private HEAL.RESTORE healPower;
 			private LEVELS minimumLevelNeeded;
 
-			TYPES(String instaHealthName, DIAMONDS.COUNT price, HEAL.RESTORE healPower, LEVELS minimumLevelNeeded) {
+			TYPES(String instaHealthName, COINS.COUNT price, HEAL.RESTORE healPower, LEVELS minimumLevelNeeded) {
 				this.instaHealthName = instaHealthName;
 				this.price = price;
 				this.healPower = healPower;
@@ -446,7 +446,7 @@ public class Enums {
 				return instaHealthName;
 			}
 
-			public DIAMONDS.COUNT getPrice() {
+			public COINS.COUNT getPrice() {
 				return price;
 			}
 

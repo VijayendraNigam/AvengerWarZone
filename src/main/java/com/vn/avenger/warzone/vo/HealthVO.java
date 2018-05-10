@@ -87,4 +87,11 @@ public class HealthVO implements ValueObject {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return "HealthVO [maximumHealth=" + maximumHealth + ", currentHealth=" + currentHealth + ", maximumStrength="
+				+ maximumStrength + ", currentStrength=" + currentStrength + ", maximumStamina=" + maximumStamina
+				+ ", currentStamina=" + currentStamina + ", isAlive=" + isAlive + "]";
+	}
+
 }
