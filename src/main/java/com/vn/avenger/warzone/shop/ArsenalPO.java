@@ -6,14 +6,15 @@ import com.vn.avenger.warzone.common.CollectionAdaptor;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
 import com.vn.avenger.warzone.common.constants.Enums.COINS.COUNT;
 import com.vn.avenger.warzone.common.constants.Enums.DAMAGE;
+import com.vn.avenger.warzone.common.constants.Enums.ENERGY;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
-import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
 
 public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObject {
 
 	private static final long serialVersionUID = -3105930229769767979L;
 
-	private ENERGY damageEnergy = ENERGY.ALL;
+	private ENERGY.TYPES energyType = ENERGY.TYPES.ALL;
+	private ENERGY.IMPACT energyImpact = ENERGY.IMPACT.HEAL;
 
 	protected COINS.COUNT price;
 	protected DAMAGE.INJURE injurePower;
@@ -36,8 +37,13 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 	}
 
 	@Override
-	public ENERGY getEnergy() {
-		return this.damageEnergy;
+	public ENERGY.TYPES getEnergyType() {
+		return this.energyType;
+	}
+
+	@Override
+	public ENERGY.IMPACT getEnergyImpact() {
+		return this.energyImpact;
 	}
 
 	@Override
@@ -50,7 +56,8 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((arsenalName == null) ? 0 : arsenalName.hashCode());
-		result = prime * result + ((damageEnergy == null) ? 0 : damageEnergy.hashCode());
+		result = prime * result + ((energyImpact == null) ? 0 : energyImpact.hashCode());
+		result = prime * result + ((energyType == null) ? 0 : energyType.hashCode());
 		result = prime * result + ((injurePower == null) ? 0 : injurePower.hashCode());
 		result = prime * result + ((mimimumLevelNeeded == null) ? 0 : mimimumLevelNeeded.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
@@ -71,7 +78,9 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 				return false;
 		} else if (!arsenalName.equals(other.arsenalName))
 			return false;
-		if (damageEnergy != other.damageEnergy)
+		if (energyImpact != other.energyImpact)
+			return false;
+		if (energyType != other.energyType)
 			return false;
 		if (injurePower != other.injurePower)
 			return false;
@@ -84,8 +93,9 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 
 	@Override
 	public String toString() {
-		return "ArsenalPO [damageEnergy=" + damageEnergy + ", price=" + price + ", injurePower=" + injurePower
-				+ ", arsenalName=" + arsenalName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
+		return "ArsenalPO [energyType=" + energyType + ", energyImpact=" + energyImpact + ", price=" + price
+				+ ", injurePower=" + injurePower + ", arsenalName=" + arsenalName + ", mimimumLevelNeeded="
+				+ mimimumLevelNeeded + "]";
 	}
 
 	@Override

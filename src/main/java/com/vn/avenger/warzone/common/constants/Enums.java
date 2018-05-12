@@ -335,13 +335,6 @@ public class Enums {
 	
 	public static class HEAL {
 		
-		public enum ENERGY {
-			HEALTH,
-			STRENGTH,
-			STAMINA,
-			ALL;
-		}
-		
 		public enum RESTORE {
 			
 			TINY(0.10f),
@@ -387,8 +380,8 @@ public class Enums {
 
 		public enum TYPES {
 
-			SURVIVAL("Survival", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_1), 
-			RECOVERY("Recovery", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.LEVEL_2);
+			SURVIVAL("Survival Potion", COINS.COUNT.HUNDRED, HEAL.RESTORE.LIGHT, LEVELS.LEVEL_1), 
+			RECOVERY("Recovery Potion", COINS.COUNT.THOUSAND, HEAL.RESTORE.SUPER, LEVELS.LEVEL_2);
 
 
 			private String potionName;
@@ -426,8 +419,8 @@ public class Enums {
 
 		public enum TYPES {
 
-			QUADRA("Quadra", COINS.COUNT.HUNDRED, HEAL.RESTORE.SUPER, LEVELS.LEVEL_1), 
-			TEDRA("Tedra", COINS.COUNT.THOUSAND, HEAL.RESTORE.ULTRA, LEVELS.LEVEL_2);
+			QUADRA("Quadra InstaHealth", COINS.COUNT.HUNDRED, HEAL.RESTORE.SUPER, LEVELS.LEVEL_1), 
+			TEDRA("Tedra InstaHealth", COINS.COUNT.THOUSAND, HEAL.RESTORE.ULTRA, LEVELS.LEVEL_2);
 
 
 			private String instaHealthName;
@@ -465,7 +458,7 @@ public class Enums {
 
 		public enum TYPES {
 
-			CLASSIC("Classic", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.LEVEL_1);
+			CLASSIC("Classic First-Aid", COINS.COUNT.TEN, HEAL.RESTORE.TINY, LEVELS.LEVEL_1);
 
 
 			private String firstAidName;
@@ -599,7 +592,7 @@ public class Enums {
 			
 			ARSENAL,
 			GEAR,
-			POTION,
+			POTIONS,
 			FIRST_AID,
 			INSTA_HEALTH,
 			
@@ -607,5 +600,20 @@ public class Enums {
 			
 		}
 		
+	}
+	
+	public static class ENERGY {
+		
+		public enum IMPACT {
+			HEAL,
+			DAMAGE
+		}
+		
+		public enum TYPES {
+			HEALTH,
+			STRENGTH,
+			STAMINA,
+			ALL;
+		}
 	}
 }

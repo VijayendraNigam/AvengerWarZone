@@ -4,16 +4,17 @@ import static com.vn.avenger.warzone.common.Helper.NEWLINE;
 
 import com.vn.avenger.warzone.common.CollectionAdaptor;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
+import com.vn.avenger.warzone.common.constants.Enums.COINS.COUNT;
+import com.vn.avenger.warzone.common.constants.Enums.ENERGY;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL;
-import com.vn.avenger.warzone.common.constants.Enums.COINS.COUNT;
-import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
 
 public abstract class InstaHealthPO extends CollectionAdaptor implements PurchaseObject {
 
 	private static final long serialVersionUID = 3480553358927131122L;
 
-	private ENERGY healsEnergy = ENERGY.HEALTH;
+	private ENERGY.TYPES energyType = ENERGY.TYPES.HEALTH;
+	private ENERGY.IMPACT energyImpact = ENERGY.IMPACT.HEAL;
 
 	protected COINS.COUNT price;
 	protected HEAL.RESTORE healPower;
@@ -36,8 +37,13 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 	}
 
 	@Override
-	public ENERGY getEnergy() {
-		return this.healsEnergy;
+	public ENERGY.TYPES getEnergyType() {
+		return this.energyType;
+	}
+
+	@Override
+	public ENERGY.IMPACT getEnergyImpact() {
+		return this.energyImpact;
 	}
 
 	@Override
@@ -49,8 +55,9 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((energyImpact == null) ? 0 : energyImpact.hashCode());
+		result = prime * result + ((energyType == null) ? 0 : energyType.hashCode());
 		result = prime * result + ((healPower == null) ? 0 : healPower.hashCode());
-		result = prime * result + ((healsEnergy == null) ? 0 : healsEnergy.hashCode());
 		result = prime * result + ((instaHealthName == null) ? 0 : instaHealthName.hashCode());
 		result = prime * result + ((mimimumLevelNeeded == null) ? 0 : mimimumLevelNeeded.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
@@ -66,9 +73,11 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 		if (getClass() != obj.getClass())
 			return false;
 		InstaHealthPO other = (InstaHealthPO) obj;
-		if (healPower != other.healPower)
+		if (energyImpact != other.energyImpact)
 			return false;
-		if (healsEnergy != other.healsEnergy)
+		if (energyType != other.energyType)
+			return false;
+		if (healPower != other.healPower)
 			return false;
 		if (instaHealthName == null) {
 			if (other.instaHealthName != null)
@@ -84,8 +93,9 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 
 	@Override
 	public String toString() {
-		return "InstaHealthPO [healsEnergy=" + healsEnergy + ", price=" + price + ", healPower=" + healPower
-				+ ", instaHealthName=" + instaHealthName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
+		return "InstaHealthPO [energyType=" + energyType + ", energyImpact=" + energyImpact + ", price=" + price
+				+ ", healPower=" + healPower + ", instaHealthName=" + instaHealthName + ", mimimumLevelNeeded="
+				+ mimimumLevelNeeded + "]";
 	}
 
 	@Override

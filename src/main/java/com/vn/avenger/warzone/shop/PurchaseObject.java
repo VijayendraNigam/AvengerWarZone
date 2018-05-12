@@ -2,12 +2,17 @@ package com.vn.avenger.warzone.shop;
 
 import java.io.Serializable;
 
+import com.vn.avenger.warzone.cast.combatant.Combatant;
+import com.vn.avenger.warzone.common.Use;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
+import com.vn.avenger.warzone.common.constants.Enums.ENERGY;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
-import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
+import com.vn.avenger.warzone.i18n.MessageCodes;
 import com.vn.avenger.warzone.screen.Window;
+import com.vn.avenger.warzone.vo.EquippedVO;
+import com.vn.avenger.warzone.vo.HealthVO;
 
-public interface PurchaseObject extends Window<String>, Serializable {
+public interface PurchaseObject extends Window<String>, Use<Combatant, MessageCodes>, Serializable {
 
 	public String getName();
 
@@ -15,7 +20,80 @@ public interface PurchaseObject extends Window<String>, Serializable {
 
 	public float getPower();
 
-	public ENERGY getEnergy();
+	public ENERGY.IMPACT getEnergyImpact();
+
+	public ENERGY.TYPES getEnergyType();
 
 	public LEVELS getMimimumLevelNeeded();
+
+	default MessageCodes use(Combatant combatant) {
+
+		EquippedVO equipped = combatant.getCombatantStats().getEquipped();
+		HealthVO health = combatant.getCombatantStats().getHealth();
+
+		equipped.consume(this);
+
+		switch (this.getEnergyType()) {
+
+		case HEALTH:
+
+			switch (this.getEnergyImpact()) {
+
+			case HEAL:
+				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 + this.getPower())));
+				break;
+
+			case DAMAGE:
+				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 - this.getPower())));
+				break;
+			}
+			break;
+
+		case STRENGTH:
+			switch (this.getEnergyImpact()) {
+
+			case HEAL:
+				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 + this.getPower())));
+				break;
+
+			case DAMAGE:
+				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 - this.getPower())));
+				break;
+			}
+			break;
+
+		case STAMINA:
+			switch (this.getEnergyImpact()) {
+
+			case HEAL:
+				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 + this.getPower())));
+				break;
+
+			case DAMAGE:
+				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 - this.getPower())));
+				break;
+			}
+			break;
+
+		case ALL:
+			switch (this.getEnergyImpact()) {
+
+			case HEAL:
+				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 + this.getPower())));
+				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 + this.getPower())));
+				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 + this.getPower())));
+				break;
+
+			case DAMAGE:
+				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 - this.getPower())));
+				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 - this.getPower())));
+				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 - this.getPower())));
+				break;
+
+			}
+			break;
+		}
+
+		return MessageCodes.USE_SUCCESS.setArguments(this.getName());
+	}
 }

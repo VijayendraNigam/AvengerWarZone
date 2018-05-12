@@ -11,12 +11,10 @@ public class AbstractFactory {
 		switch (factory) {
 
 		case HERO:         return (Factory<T, E>) new HeroFactory();
-
 		case ARSENAL:      return (Factory<T, E>) new ArsenalFactory();
-		case POTION:       return (Factory<T, E>) new PotionFactory();
+		case POTIONS:       return (Factory<T, E>) new PotionFactory();
 		case FIRST_AID:    return (Factory<T, E>) new FirstAidFactory();
 		case INSTA_HEALTH: return (Factory<T, E>) new InstaHealthFactory();
-
 		case FOOD:         return (Factory<T, E>) new FoodFactory();
 		default:           return null;
 

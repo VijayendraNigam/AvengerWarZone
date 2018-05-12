@@ -5,15 +5,16 @@ import static com.vn.avenger.warzone.common.Helper.NEWLINE;
 import com.vn.avenger.warzone.common.CollectionAdaptor;
 import com.vn.avenger.warzone.common.constants.Enums.COINS;
 import com.vn.avenger.warzone.common.constants.Enums.COINS.COUNT;
+import com.vn.avenger.warzone.common.constants.Enums.ENERGY;
 import com.vn.avenger.warzone.common.constants.Enums.GENERAL.LEVELS;
 import com.vn.avenger.warzone.common.constants.Enums.HEAL;
-import com.vn.avenger.warzone.common.constants.Enums.HEAL.ENERGY;
 
 public abstract class FirstAidPO extends CollectionAdaptor implements PurchaseObject {
 
 	private static final long serialVersionUID = 8605038082668249462L;
 
-	private ENERGY healsEnergy = ENERGY.STAMINA;
+	private ENERGY.TYPES energyType = ENERGY.TYPES.STRENGTH;
+	private ENERGY.IMPACT energyImpact = ENERGY.IMPACT.HEAL;
 
 	protected COINS.COUNT price;
 	protected HEAL.RESTORE healPower;
@@ -36,8 +37,13 @@ public abstract class FirstAidPO extends CollectionAdaptor implements PurchaseOb
 	}
 
 	@Override
-	public ENERGY getEnergy() {
-		return this.healsEnergy;
+	public ENERGY.TYPES getEnergyType() {
+		return this.energyType;
+	}
+
+	@Override
+	public ENERGY.IMPACT getEnergyImpact() {
+		return this.energyImpact;
 	}
 
 	@Override
@@ -49,9 +55,10 @@ public abstract class FirstAidPO extends CollectionAdaptor implements PurchaseOb
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((energyImpact == null) ? 0 : energyImpact.hashCode());
+		result = prime * result + ((energyType == null) ? 0 : energyType.hashCode());
 		result = prime * result + ((firstAidName == null) ? 0 : firstAidName.hashCode());
 		result = prime * result + ((healPower == null) ? 0 : healPower.hashCode());
-		result = prime * result + ((healsEnergy == null) ? 0 : healsEnergy.hashCode());
 		result = prime * result + ((mimimumLevelNeeded == null) ? 0 : mimimumLevelNeeded.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		return result;
@@ -66,14 +73,16 @@ public abstract class FirstAidPO extends CollectionAdaptor implements PurchaseOb
 		if (getClass() != obj.getClass())
 			return false;
 		FirstAidPO other = (FirstAidPO) obj;
+		if (energyImpact != other.energyImpact)
+			return false;
+		if (energyType != other.energyType)
+			return false;
 		if (firstAidName == null) {
 			if (other.firstAidName != null)
 				return false;
 		} else if (!firstAidName.equals(other.firstAidName))
 			return false;
 		if (healPower != other.healPower)
-			return false;
-		if (healsEnergy != other.healsEnergy)
 			return false;
 		if (mimimumLevelNeeded != other.mimimumLevelNeeded)
 			return false;
@@ -84,8 +93,9 @@ public abstract class FirstAidPO extends CollectionAdaptor implements PurchaseOb
 
 	@Override
 	public String toString() {
-		return "FirstAidPO [healsEnergy=" + healsEnergy + ", price=" + price + ", healPower=" + healPower
-				+ ", firstAidName=" + firstAidName + ", mimimumLevelNeeded=" + mimimumLevelNeeded + "]";
+		return "FirstAidPO [energyType=" + energyType + ", energyImpact=" + energyImpact + ", price=" + price
+				+ ", healPower=" + healPower + ", firstAidName=" + firstAidName + ", mimimumLevelNeeded="
+				+ mimimumLevelNeeded + "]";
 	}
 
 	@Override

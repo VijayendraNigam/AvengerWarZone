@@ -29,13 +29,12 @@ public class Hero extends Combatant implements Hibernate<Hero>, Buy<PurchaseObje
 
 			if (general.getLevel().getValue() >= purchaseObject.getMimimumLevelNeeded().getValue()) {
 				wealth.setCoins(wealth.getCoins() - purchaseObject.getPrice().getCoins());
-				equipped.digest(purchaseObject);
-				return MessageCodes.BUY_SUCCESS;
+				equipped.stock(purchaseObject);
+				return MessageCodes.BUY_SUCCESS.setArguments(purchaseObject.getName());
 			}
-			return MessageCodes.BUY_FAIL_LEVEL.setArguments(purchaseObject.getMimimumLevelNeeded());
+			return MessageCodes.BUY_FAIL_LEVEL.setArguments(purchaseObject.getName(), purchaseObject.getMimimumLevelNeeded());
 		}
-		return MessageCodes.BUY_FAIL_FUND;
-
+		return MessageCodes.BUY_FAIL_FUND.setArguments(purchaseObject.getName());
 	}
 
 }

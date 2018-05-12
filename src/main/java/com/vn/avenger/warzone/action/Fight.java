@@ -1,11 +1,9 @@
 package com.vn.avenger.warzone.action;
 
-public interface Fight {
+import com.vn.avenger.warzone.cast.combatant.Combatant;
 
-	default void doAttack() {
-	};
+public interface Fight<T extends Combatant, E extends Combatant> {
 
-	default void doDefend() {
-	};
+	public T doAttack(E atttackedOn);
 
 }

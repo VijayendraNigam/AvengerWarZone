@@ -6,7 +6,9 @@ public enum MessageCodes {
 	BUY_FAIL_FUND("BUY_FAIL_FUND"), 
 	BUY_FAIL_LEVEL("BUY_FAIL_LEVEL"),
 
+	USE_SUCCESS("USE_OK"),
 	
+	ACQUIRE_SUCCESS("ACQUIRE_OK")
 	
 	;
 

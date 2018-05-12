@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.vn.avenger.warzone.common.Digest;
-import com.vn.avenger.warzone.common.Factory;
-import com.vn.avenger.warzone.common.constants.Enums.ABSTRACT_FACTORY.FACTORY;
+import com.vn.avenger.warzone.common.Commodity;
+import com.vn.avenger.warzone.common.Helper;
 import com.vn.avenger.warzone.common.constants.Enums.ARSENAL;
-import com.vn.avenger.warzone.common.impl.factory.AbstractFactory;
 import com.vn.avenger.warzone.shop.ArsenalPO;
 import com.vn.avenger.warzone.shop.FirstAidPO;
 import com.vn.avenger.warzone.shop.GearPO;
@@ -16,10 +14,11 @@ import com.vn.avenger.warzone.shop.InstaHealthPO;
 import com.vn.avenger.warzone.shop.PotionPO;
 import com.vn.avenger.warzone.shop.PurchaseObject;
 
-public class EquippedVO implements ValueObject, Digest<PurchaseObject> {
+public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 
 	private static final long serialVersionUID = 1650687719962801826L;
 
+	private ArsenalPO acquiredArsenal;
 	private List<ArsenalPO> arsenals;
 	private List<GearPO> gears;
 	private List<FirstAidPO> firstAids;
@@ -27,10 +26,8 @@ public class EquippedVO implements ValueObject, Digest<PurchaseObject> {
 	private List<PotionPO> potions;
 
 	public EquippedVO() {
-
-		Factory<ArsenalPO, ARSENAL.TYPES> arsenalfactory = AbstractFactory.getFactory(FACTORY.ARSENAL);
-
-		this.arsenals = new ArrayList<>(Arrays.asList(arsenalfactory.get(ARSENAL.TYPES.FISTS)));
+		this.acquiredArsenal = Helper.ARSENAL_FACTORY.get(ARSENAL.TYPES.FISTS);
+		this.arsenals = new ArrayList<>(Arrays.asList(acquiredArsenal));
 		this.gears = new ArrayList<>();
 		this.firstAids = new ArrayList<>();
 		this.instaHealths = new ArrayList<>();
@@ -38,10 +35,14 @@ public class EquippedVO implements ValueObject, Digest<PurchaseObject> {
 	}
 
 	@Override
-	public void digest(PurchaseObject purchaseObject) {
+	public void stock(PurchaseObject purchaseObject) {
 
 		if (purchaseObject instanceof ArsenalPO) {
 			this.arsenals.add((ArsenalPO) purchaseObject);
+
+			if (arsenals.isEmpty()) {
+				arsenals.add(Helper.ARSENAL_FACTORY.get(ARSENAL.TYPES.FISTS));
+			}
 
 		} else if (purchaseObject instanceof GearPO) {
 			this.gears.add((GearPO) purchaseObject);
@@ -54,6 +55,27 @@ public class EquippedVO implements ValueObject, Digest<PurchaseObject> {
 
 		} else if (purchaseObject instanceof PotionPO) {
 			this.potions.add((PotionPO) purchaseObject);
+
+		}
+	}
+
+	@Override
+	public void consume(PurchaseObject purchaseObject) {
+
+		if (purchaseObject instanceof ArsenalPO) {
+			this.arsenals.remove((ArsenalPO) purchaseObject);
+
+		} else if (purchaseObject instanceof GearPO) {
+			this.gears.remove((GearPO) purchaseObject);
+
+		} else if (purchaseObject instanceof FirstAidPO) {
+			this.firstAids.remove((FirstAidPO) purchaseObject);
+
+		} else if (purchaseObject instanceof InstaHealthPO) {
+			this.instaHealths.remove((InstaHealthPO) purchaseObject);
+
+		} else if (purchaseObject instanceof PotionPO) {
+			this.potions.remove((PotionPO) purchaseObject);
 
 		}
 	}
@@ -103,10 +125,19 @@ public class EquippedVO implements ValueObject, Digest<PurchaseObject> {
 		return this;
 	}
 
+	public ArsenalPO getAcquiredArsenal() {
+		return acquiredArsenal;
+	}
+
+	public EquippedVO setAcquiredArsenal(ArsenalPO acquiredArsenal) {
+		this.acquiredArsenal = acquiredArsenal;
+		return this;
+	}
+
 	@Override
 	public String toString() {
-		return "EquippedVO [arsenals=" + arsenals + ", gears=" + gears + ", firstAids=" + firstAids + ", instaHealths="
-				+ instaHealths + ", potions=" + potions + "]";
+		return "EquippedVO [acquiredArsenal=" + acquiredArsenal + ", arsenals=" + arsenals + ", gears=" + gears
+				+ ", firstAids=" + firstAids + ", instaHealths=" + instaHealths + ", potions=" + potions + "]";
 	}
 
 }
