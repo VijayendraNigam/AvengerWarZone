@@ -596,7 +596,11 @@ public class Enums {
 			FIRST_AID,
 			INSTA_HEALTH,
 			
-			FOOD;
+			FOOD,
+			
+			SCREENS,
+			
+			;
 			
 		}
 		
@@ -615,5 +619,33 @@ public class Enums {
 			STAMINA,
 			ALL;
 		}
+	}
+	
+	public static class SCREENS {
+		
+		public enum TYPES {
+			
+			WELCOME,
+			ABOUT,
+			HELP,
+			
+			ACHIEVEMENT_INFO,
+			ARSENAL_INFO,
+			FIRST_AID_INFO,
+			INSTA_HEALTH_INFO,
+			FOOD_INFO,
+			MONSTER_INFO,
+			POTION_INFO,
+			XP_INFO,
+			
+			RELOAD,
+			MODE,
+			USERNAME,
+			HERO,
+			
+			;
+			
+		}
+		
 	}
 }

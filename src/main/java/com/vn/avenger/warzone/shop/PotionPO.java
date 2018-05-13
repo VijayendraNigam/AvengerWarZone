@@ -99,7 +99,7 @@ public abstract class PotionPO extends CollectionAdaptor implements PurchaseObje
 	}
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

@@ -33,6 +33,7 @@ public interface Hibernate<T> {
 			FileInputStream fis = new FileInputStream(fileName);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 
+			@SuppressWarnings("unchecked")
 			T t = (T) ois.readObject();
 
 			ois.close();
@@ -41,7 +42,7 @@ public interface Hibernate<T> {
 			return t;
 
 		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return null;
 	}

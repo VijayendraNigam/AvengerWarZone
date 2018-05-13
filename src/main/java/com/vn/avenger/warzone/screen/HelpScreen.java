@@ -5,7 +5,7 @@ import static com.vn.avenger.warzone.common.Helper.NEWLINE;
 public class HelpScreen implements Window<String> {
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

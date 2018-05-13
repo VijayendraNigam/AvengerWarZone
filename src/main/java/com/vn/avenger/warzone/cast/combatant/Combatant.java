@@ -9,8 +9,10 @@ import com.vn.avenger.warzone.i18n.MessageCodes;
 import com.vn.avenger.warzone.shop.ArsenalPO;
 import com.vn.avenger.warzone.shop.PurchaseObject;
 
-public abstract class Combatant implements Fight<Combatant, Combatant>, Acquire<ArsenalPO, MessageCodes>,
-		Avail<PurchaseObject, MessageCodes>, Serializable {
+public abstract class Combatant implements Fight<Combatant, Combatant>, 
+                                           Acquire<ArsenalPO, MessageCodes>,
+                                           Avail<PurchaseObject, MessageCodes>, 
+                                           Serializable {
 
 	private static final long serialVersionUID = -138744694364281533L;
 

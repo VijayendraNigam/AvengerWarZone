@@ -99,7 +99,7 @@ public abstract class InstaHealthPO extends CollectionAdaptor implements Purchas
 	}
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

@@ -99,7 +99,7 @@ public abstract class FirstAidPO extends CollectionAdaptor implements PurchaseOb
 	}
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

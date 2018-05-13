@@ -7,7 +7,7 @@ import static com.vn.avenger.warzone.common.Helper.VERSION;
 public class AboutScreen implements Window<String> {
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

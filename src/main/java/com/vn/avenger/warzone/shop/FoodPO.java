@@ -99,7 +99,7 @@ public abstract class FoodPO extends CollectionAdaptor implements PurchaseObject
 	}
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

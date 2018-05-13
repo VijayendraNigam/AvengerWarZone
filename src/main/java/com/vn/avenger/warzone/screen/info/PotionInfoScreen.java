@@ -8,7 +8,7 @@ import com.vn.avenger.warzone.screen.Window;
 public class PotionInfoScreen implements Window<String> {
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

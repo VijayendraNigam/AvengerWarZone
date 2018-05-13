@@ -99,7 +99,7 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 	}
 
 	@Override
-	public String render() {
+	public String view() {
 
 		StringBuilder screen = new StringBuilder();
 

@@ -10,7 +10,7 @@ import com.vn.avenger.warzone.vo.EquippedVO;
 import com.vn.avenger.warzone.vo.GeneralVO;
 import com.vn.avenger.warzone.vo.WealthVO;
 
-public class Hero extends Combatant implements Hibernate<Hero>, Buy<PurchaseObject, MessageCodes> {
+public class Hero extends Combatant implements Buy<PurchaseObject, MessageCodes>, Hibernate<Hero> {
 
 	private static final long serialVersionUID = 3960164957185565073L;
 
