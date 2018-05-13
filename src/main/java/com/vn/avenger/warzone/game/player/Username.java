@@ -1,4 +1,4 @@
-package com.vn.avenger.warzone.game;
+package com.vn.avenger.warzone.game.player;
 
 import static com.vn.avenger.warzone.common.Helper.SCREEN_FACTORY;
 

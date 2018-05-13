@@ -140,4 +140,9 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 				+ ", firstAids=" + firstAids + ", instaHealths=" + instaHealths + ", potions=" + potions + "]";
 	}
 
+	@Override
+	public String view() {
+		return null;
+	}
+
 }

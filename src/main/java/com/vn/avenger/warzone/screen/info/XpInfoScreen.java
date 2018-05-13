@@ -45,8 +45,6 @@ public class XpInfoScreen implements Window<String> {
 		screen.append("|     you unlock.                                       ").append(NEWLINE);
 		screen.append("|   > Using a POWER will give you 50 XP.                ").append(NEWLINE);
 		screen.append("|                                                       ").append(NEWLINE);
-		screen.append("|                                                       ").append(NEWLINE);
-		screen.append("|   1) Back                                             ").append(NEWLINE);
 		screen.append("|_______________________________________________________").append(NEWLINE);
 
 		return screen.toString();

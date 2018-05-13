@@ -12,7 +12,7 @@ public class Boot {
 
 		while (true) {
 
-			Home.view();
+			Welcome.view();
 
 			switch (Gui.in.readInt()) {
 

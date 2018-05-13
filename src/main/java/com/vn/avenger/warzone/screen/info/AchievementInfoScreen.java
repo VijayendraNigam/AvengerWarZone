@@ -33,12 +33,11 @@ public class AchievementInfoScreen implements Window<String> {
 		screen.append("|                                                       ").append(NEWLINE);
 
 		for (ACHIEVEMENTS.BADGES badges : ACHIEVEMENTS.BADGES.values()) {
-			screen.append("|   ").append(badges.getBadgeName()).append("  |  ")
+			screen.append("|  ").append(badges.getBadgeName()).append("  |  ")
 			      .append(badges.getDescription()).append(NEWLINE);
 		}
 
 		screen.append("|                                                      ").append(NEWLINE);
-		screen.append("|   1) Back                                            ").append(NEWLINE);
 		screen.append("|______________________________________________________").append(NEWLINE);
 
 		return screen.toString();

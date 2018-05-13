@@ -1,5 +1,7 @@
 package com.vn.avenger.warzone.vo;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 import com.vn.avenger.warzone.common.constants.Enums.LIFE;
 
 public class LifeVO implements ValueObject {
@@ -47,6 +49,30 @@ public class LifeVO implements ValueObject {
 	public String toString() {
 		return "LifeVO [maximumLifes=" + maximumLifes + ", currentLifes=" + currentLifes + ", noOfTimesDied="
 				+ noOfTimesDied + "]";
+	}
+
+	@Override
+	public String view() {
+
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|           |A|v|e|n|g|e|r|  |W|a|r|z|o|n|e|           |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                        Lifes                         |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|    Current lifes:    ").append(getCurrentLifes()).append(NEWLINE);
+		screen.append("|    Maximum lifes:    ").append(getMaximumLifes()).append(NEWLINE);
+		screen.append("|    No of time died:  ").append(getNoOfTimesDied()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
 	}
 
 }

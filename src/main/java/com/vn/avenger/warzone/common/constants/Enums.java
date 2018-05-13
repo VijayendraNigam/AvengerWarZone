@@ -9,7 +9,15 @@ public class Enums {
 		public enum HERO {
 
 			THOR("Thor"), 
-			CAPTAIN_AMERICA("Captain America");
+			CAPTAIN_AMERICA("Captain America"),
+			HULK("Hulk"),
+			IRON_MAN("Iron-Man"),
+			ANT_MAN("Ant-Man"),
+			SPIDER_MAN("Spider-Man"),
+			BLACK_WIDOW("Black Widow"),
+			VISION("Vision"),
+			WASP("Wasp"),
+			CAPTAIN_MARVEL("Captain Marvel");
 
 			private String heroName;
 
@@ -25,7 +33,15 @@ public class Enums {
 		public enum MONSTER {
 
 			LOKI("Loki"), 
-			RED_SKULL("Red Skull");
+			RED_SKULL("Red Skull"),
+			ULTRON("Ultron"),
+			DOCTOR_OCTOPUS("Doctor Octopus"),
+			VENOM("Venom"),
+			DORMAMMU("Dormammu"),
+			EMMA_FROST("Emma Frost"),
+			VULCAN("Vulcan"),
+			HELA("Hela"),
+			THANOS("Thanos");
 
 			private String monsterName;
 

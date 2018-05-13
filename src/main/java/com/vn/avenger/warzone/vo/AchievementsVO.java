@@ -1,5 +1,7 @@
 package com.vn.avenger.warzone.vo;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +33,39 @@ public class AchievementsVO implements ValueObject {
 	@Override
 	public String toString() {
 		return "AchievementsVO [badgesMap=" + badgesMap + "]";
+	}
+
+	@Override
+	public String view() {
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|           |A|v|e|n|g|e|r|  |W|a|r|z|o|n|e|           |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                    Achievements                      |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Unlocked Achievements--").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		for (BADGES badge : getBadgesMap().keySet()) {
+			if (getBadgesMap().get(badge))
+				screen.append("|    ").append(badge.getBadgeName()).append(NEWLINE);;
+		}
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Locked Achievements--").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		for (BADGES badge : getBadgesMap().keySet()) {
+			if (!getBadgesMap().get(badge))
+				screen.append("|    ").append(badge.getBadgeName()).append(NEWLINE);;
+		}
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
 	}
 
 }

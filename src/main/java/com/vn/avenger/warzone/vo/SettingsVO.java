@@ -1,5 +1,7 @@
 package com.vn.avenger.warzone.vo;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 import com.vn.avenger.warzone.common.constants.Enums.GAME;
 
 public class SettingsVO implements ValueObject {
@@ -33,6 +35,29 @@ public class SettingsVO implements ValueObject {
 	@Override
 	public String toString() {
 		return "SettingsVO [gameMode=" + gameMode + ", godMode=" + godMode + "]";
+	}
+
+	@Override
+	public String view() {
+
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|           |A|v|e|n|g|e|r|  |W|a|r|z|o|n|e|           |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                       Settings                       |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|    Game mode:   ").append(getGameMode().getMode()).append(NEWLINE);
+		screen.append("|    God mode:    ").append(isGodMode()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
 	}
 
 }

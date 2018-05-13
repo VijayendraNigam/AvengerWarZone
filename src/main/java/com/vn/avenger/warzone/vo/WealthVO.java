@@ -38,4 +38,9 @@ public class WealthVO implements ValueObject {
 		return "WealthVO [coins=" + coins + ", diamonds=" + diamonds + "]";
 	}
 
+	@Override
+	public String view() {
+		return null;
+	}
+
 }

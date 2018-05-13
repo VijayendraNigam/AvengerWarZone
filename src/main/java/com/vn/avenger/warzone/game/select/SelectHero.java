@@ -1,4 +1,4 @@
-package com.vn.avenger.warzone.game;
+package com.vn.avenger.warzone.game.select;
 
 import static com.vn.avenger.warzone.common.Helper.HERO_FACTORY;
 import static com.vn.avenger.warzone.common.Helper.SCREEN_FACTORY;
@@ -24,7 +24,14 @@ public class SelectHero {
 
 		case 1:
 		case 2:
-		case 3:    return HERO_FACTORY.get(HERO.values()[choice - 1]);
+		case 3:    
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:   return HERO_FACTORY.get(HERO.values()[choice - 1]);
 		default:   return HERO_FACTORY.get(HERO.values()[0]);
 		
 		}

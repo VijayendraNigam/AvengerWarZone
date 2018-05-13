@@ -83,4 +83,9 @@ public class GeneralVO implements ValueObject {
 				+ ", lastLoginDate=" + lastLoginDate + ", accountCreatedOn=" + accountCreatedOn + "]";
 	}
 
+	@Override
+	public String view() {
+		return null;
+	}
+
 }

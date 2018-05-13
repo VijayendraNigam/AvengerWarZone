@@ -1,6 +1,9 @@
 package com.vn.avenger.warzone.cast.combatant;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 import java.io.Serializable;
+import java.util.stream.Collectors;
 
 import com.vn.avenger.warzone.action.Fight;
 import com.vn.avenger.warzone.common.Acquire;
@@ -54,6 +57,50 @@ public abstract class Combatant implements Fight<Combatant, Combatant>,
 		attackedOn.avail(attackerArsenal);
 		
 		return this;
+	}
+	
+	public String getHomeView() {
+		
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|           |A|v|e|n|g|e|r|  |W|a|r|z|o|n|e|           |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                    Welcome Home                      |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
+		screen.append("| Welcome, ").append(this.getCombatantStats().getGeneral().getPlayerName()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Score Info--").append(NEWLINE);
+		screen.append("|          XP:               ").append(this.getCombatantStats().getGeneral().getXp()).append(NEWLINE);
+		screen.append("|          Highest Score:    ").append(this.getCombatantStats().getStatistics().getHighestScore()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Player Info--").append(NEWLINE);
+		screen.append("|          Health:           ").append(this.getCombatantStats().getHealth().getCurrentHealth()).append(NEWLINE);
+		screen.append("|          Coins:            ").append(this.getCombatantStats().getWealth().getCoins()).append(NEWLINE);
+		screen.append("|          Diamonds:         ").append(this.getCombatantStats().getWealth().getDiamonds()).append(NEWLINE);
+		screen.append("|          Acquired Arsenal: ").append(this.getCombatantStats().getEquipped().getAcquiredArsenal().getName()).append(NEWLINE);
+		screen.append("|          Arsenal:          ").append(this.getCombatantStats().getEquipped().getArsenals().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|          Potions:          ").append(this.getCombatantStats().getEquipped().getPotions().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|          First-Aid:        ").append(this.getCombatantStats().getEquipped().getFirstAids().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|          InstaHealth:      ").append(this.getCombatantStats().getEquipped().getInstaHealths().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|  1)  Go to WarZone                                    ").append(NEWLINE);
+		screen.append("|  2)  Go to Town                                       ").append(NEWLINE);
+		screen.append("|  3)  Achievements                                     ").append(NEWLINE);
+		screen.append("|  4)  Statistics                                       ").append(NEWLINE);
+		screen.append("|  5)  Health                                           ").append(NEWLINE);
+		screen.append("|  6)  Lifes                                            ").append(NEWLINE);
+		screen.append("|  7)  Settings                                         ").append(NEWLINE);
+		screen.append("|  8)  Help                                             ").append(NEWLINE);
+		screen.append("|  9)  Quit (Game will automatically be saved)          ").append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
 	}
 
 }

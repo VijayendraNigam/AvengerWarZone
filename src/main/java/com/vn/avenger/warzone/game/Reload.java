@@ -4,6 +4,9 @@ import static com.vn.avenger.warzone.common.Helper.SCREEN_FACTORY;
 
 import com.vn.avenger.warzone.cast.hero.Hero;
 import com.vn.avenger.warzone.common.constants.Enums.SCREENS;
+import com.vn.avenger.warzone.game.player.NewPlayer;
+import com.vn.avenger.warzone.game.player.OldPlayer;
+import com.vn.avenger.warzone.game.player.Username;
 import com.vn.avenger.warzone.ui.Gui;
 
 public class Reload {

@@ -11,6 +11,7 @@ public class AbstractFactory {
 		switch (factory) {
 
 		case HERO:         return (Factory<T, E>) new HeroFactory();
+		case MONSTER:      return (Factory<T, E>) new MonsterFactory();
 		case ARSENAL:      return (Factory<T, E>) new ArsenalFactory();
 		case POTIONS:      return (Factory<T, E>) new PotionFactory();
 		case FIRST_AID:    return (Factory<T, E>) new FirstAidFactory();

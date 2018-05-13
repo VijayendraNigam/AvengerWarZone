@@ -1,5 +1,7 @@
 package com.vn.avenger.warzone.vo;
 
+import static com.vn.avenger.warzone.common.Helper.NEWLINE;
+
 public class StatisticsVO implements ValueObject {
 
 	private static final long serialVersionUID = -8465122675667029742L;
@@ -141,6 +143,44 @@ public class StatisticsVO implements ValueObject {
 				+ ", coinsSpentOnPotions=" + coinsSpentOnPotions + ", coinsSpentOnFirstAid=" + coinsSpentOnFirstAid
 				+ ", coinsSpentOnInstaHealth=" + coinsSpentOnInstaHealth + ", coinsSpentOnFood=" + coinsSpentOnFood
 				+ "]";
+	}
+
+	@Override
+	public String view() {
+
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|           |A|v|e|n|g|e|r|  |W|a|r|z|o|n|e|           |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                      Statistics                      |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Battle Statistics--").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|       Highest Score:              ").append(getHighestScore()).append(NEWLINE);
+		screen.append("|       Total Wins:                 ").append(getTotalWins()).append(NEWLINE);
+		screen.append("|       Totol Defeats:              ").append(getTotalDefeats()).append(NEWLINE);
+		screen.append("|       Times Quit:                 ").append(getTimesQuit()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Wealth Statistics--").append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|       Total coins spent:          ").append(getTotalCoinsSpent()).append(NEWLINE);
+		screen.append("|       Coins spent on arsenal:     ").append(getCoinsSpentOnArsenal()).append(NEWLINE);
+		screen.append("|       Coins spent on gear:        ").append(getCoinsSpentOnGear()).append(NEWLINE);
+		screen.append("|       Coins spent on potions:     ").append(getCoinsSpentOnPotions()).append(NEWLINE);
+		screen.append("|       Coins spent on firstaid:    ").append(getCoinsSpentOnFirstAid()).append(NEWLINE);
+		screen.append("|       Coins spent on instahealth: ").append(getCoinsSpentOnInstaHealth()).append(NEWLINE);
+		screen.append("|       Coins spent on food:        ").append(getCoinsSpentOnFood()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
+
 	}
 
 }

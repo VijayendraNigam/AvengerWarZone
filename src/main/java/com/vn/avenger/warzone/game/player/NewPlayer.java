@@ -1,7 +1,9 @@
-package com.vn.avenger.warzone.game;
+package com.vn.avenger.warzone.game.player;
 
 import com.vn.avenger.warzone.cast.hero.Hero;
 import com.vn.avenger.warzone.common.constants.Enums.GAME;
+import com.vn.avenger.warzone.game.select.Mode;
+import com.vn.avenger.warzone.game.select.SelectHero;
 
 public class NewPlayer {
 
