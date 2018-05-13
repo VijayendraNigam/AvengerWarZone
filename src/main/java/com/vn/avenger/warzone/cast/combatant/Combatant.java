@@ -74,6 +74,9 @@ public abstract class Combatant implements Fight<Combatant, Combatant>,
 		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
 		screen.append("| Welcome, ").append(this.getCombatantStats().getGeneral().getPlayerName()).append(NEWLINE);
 		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("| Level:   ").append(this.getCombatantStats().getGeneral().getLevel().getValue())
+		      .append("                 Hero:  ").append(this.getCombatantStats().getGeneral().getCombatantName()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
 		screen.append("|--Score Info--").append(NEWLINE);
 		screen.append("|          XP:               ").append(this.getCombatantStats().getGeneral().getXp()).append(NEWLINE);
 		screen.append("|          Highest Score:    ").append(this.getCombatantStats().getStatistics().getHighestScore()).append(NEWLINE);

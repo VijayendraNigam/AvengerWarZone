@@ -658,6 +658,14 @@ public class Enums {
 			MODE,
 			USERNAME,
 			HERO,
+			TOWN,
+			
+			SHOP,
+			ARSENAL_SHOP,
+			FIRST_AID_SHOP,
+			INSTA_HEALTH_SHOP,
+			FOOD_SHOP,
+			POTION_SHOP,S
 			
 			;
 			

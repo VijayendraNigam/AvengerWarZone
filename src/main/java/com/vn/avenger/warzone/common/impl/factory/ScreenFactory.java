@@ -7,6 +7,7 @@ import com.vn.avenger.warzone.screen.HelpScreen;
 import com.vn.avenger.warzone.screen.HeroScreen;
 import com.vn.avenger.warzone.screen.ModeScreen;
 import com.vn.avenger.warzone.screen.ReloadScreen;
+import com.vn.avenger.warzone.screen.TownScreen;
 import com.vn.avenger.warzone.screen.UsernameScreen;
 import com.vn.avenger.warzone.screen.WelcomeScreen;
 import com.vn.avenger.warzone.screen.Window;
@@ -18,6 +19,12 @@ import com.vn.avenger.warzone.screen.info.InstaHealthInfoScreen;
 import com.vn.avenger.warzone.screen.info.MonsterInfoScreen;
 import com.vn.avenger.warzone.screen.info.PotionInfoScreen;
 import com.vn.avenger.warzone.screen.info.XpInfoScreen;
+import com.vn.avenger.warzone.screen.shop.ArsenalShopScreen;
+import com.vn.avenger.warzone.screen.shop.FirstAidShopScreen;
+import com.vn.avenger.warzone.screen.shop.FoodShopScreen;
+import com.vn.avenger.warzone.screen.shop.InstaHealthShopScreen;
+import com.vn.avenger.warzone.screen.shop.PotionShopScreen;
+import com.vn.avenger.warzone.screen.shop.ShopScreen;
 
 public class ScreenFactory implements Factory<Window<String>, SCREENS.TYPES> {
 
@@ -41,6 +48,13 @@ public class ScreenFactory implements Factory<Window<String>, SCREENS.TYPES> {
 		case MODE:                    return new ModeScreen();
 		case USERNAME:                return new UsernameScreen();
 		case HERO:                    return new HeroScreen();
+		case TOWN:                    return new TownScreen();
+		case SHOP:                    return new ShopScreen();
+		case ARSENAL_SHOP:            return new ArsenalShopScreen();
+		case FIRST_AID_SHOP:          return new FirstAidShopScreen();
+		case INSTA_HEALTH_SHOP:       return new InstaHealthShopScreen();
+		case POTION_SHOP:             return new PotionShopScreen();
+		case FOOD_SHOP:               return new FoodShopScreen();
 		default:                      return new WelcomeScreen();
 
 		}

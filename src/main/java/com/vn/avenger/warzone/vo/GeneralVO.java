@@ -13,6 +13,7 @@ public class GeneralVO implements ValueObject {
 	private LEVELS level;
 	private int xpNeeded;
 	private String playerName;
+	private String combatantName;
 	private Date lastLoginDate;
 	private Date accountCreatedOn;
 
@@ -77,10 +78,20 @@ public class GeneralVO implements ValueObject {
 		return this;
 	}
 
+	public String getCombatantName() {
+		return combatantName;
+	}
+
+	public GeneralVO setCombatantName(String combatantName) {
+		this.combatantName = combatantName;
+		return this;
+	}
+
 	@Override
 	public String toString() {
 		return "GeneralVO [xp=" + xp + ", level=" + level + ", xpNeeded=" + xpNeeded + ", playerName=" + playerName
-				+ ", lastLoginDate=" + lastLoginDate + ", accountCreatedOn=" + accountCreatedOn + "]";
+				+ ", combatantName=" + combatantName + ", lastLoginDate=" + lastLoginDate + ", accountCreatedOn="
+				+ accountCreatedOn + "]";
 	}
 
 	@Override
