@@ -14,7 +14,7 @@ public abstract class ArsenalPO extends CollectionAdaptor implements PurchaseObj
 	private static final long serialVersionUID = -3105930229769767979L;
 
 	private ENERGY.TYPES energyType = ENERGY.TYPES.ALL;
-	private ENERGY.IMPACT energyImpact = ENERGY.IMPACT.HEAL;
+	private ENERGY.IMPACT energyImpact = ENERGY.IMPACT.DAMAGE;
 
 	protected COINS.COUNT price;
 	protected DAMAGE.INJURE injurePower;

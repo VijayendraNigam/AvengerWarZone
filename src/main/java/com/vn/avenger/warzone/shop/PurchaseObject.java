@@ -40,11 +40,11 @@ public interface PurchaseObject extends Window<String>, Use<Combatant, MessageCo
 			switch (this.getEnergyImpact()) {
 
 			case HEAL:
-				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 + this.getPower())));
+				health.setCurrentHealth((int) (health.getCurrentHealth() * (1 + this.getPower())));
 				break;
 
 			case DAMAGE:
-				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 - this.getPower())));
+				health.setCurrentHealth((int) (health.getCurrentHealth() * (1 - this.getPower())));
 				break;
 			}
 			break;
@@ -53,11 +53,11 @@ public interface PurchaseObject extends Window<String>, Use<Combatant, MessageCo
 			switch (this.getEnergyImpact()) {
 
 			case HEAL:
-				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 + this.getPower())));
+				health.setCurrentStrength((int) (health.getCurrentStrength() * (1 + this.getPower())));
 				break;
 
 			case DAMAGE:
-				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 - this.getPower())));
+				health.setCurrentStrength((int) (health.getCurrentStrength() * (1 - this.getPower())));
 				break;
 			}
 			break;
@@ -66,11 +66,11 @@ public interface PurchaseObject extends Window<String>, Use<Combatant, MessageCo
 			switch (this.getEnergyImpact()) {
 
 			case HEAL:
-				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 + this.getPower())));
+				health.setCurrentStamina((int) (health.getCurrentStamina() * (1 + this.getPower())));
 				break;
 
 			case DAMAGE:
-				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 - this.getPower())));
+				health.setCurrentStamina((int) (health.getCurrentStamina() * (1 - this.getPower())));
 				break;
 			}
 			break;
@@ -79,15 +79,15 @@ public interface PurchaseObject extends Window<String>, Use<Combatant, MessageCo
 			switch (this.getEnergyImpact()) {
 
 			case HEAL:
-				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 + this.getPower())));
-				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 + this.getPower())));
-				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 + this.getPower())));
+				health.setCurrentHealth((int) (health.getCurrentHealth() * (1 + this.getPower())));
+				health.setCurrentStrength((int) (health.getCurrentStrength() * (1 + this.getPower())));
+				health.setCurrentStamina((int) (health.getCurrentStamina() * (1 + this.getPower())));
 				break;
 
 			case DAMAGE:
-				health.setCurrentHealth(Math.round(health.getCurrentHealth() * (1 - this.getPower())));
-				health.setCurrentStrength(Math.round(health.getCurrentStrength() * (1 - this.getPower())));
-				health.setCurrentStamina(Math.round(health.getCurrentStamina() * (1 - this.getPower())));
+				health.setCurrentHealth((int) (health.getCurrentHealth() * (1 - this.getPower())));
+				health.setCurrentStrength((int) (health.getCurrentStrength() * (1 - this.getPower())));
+				health.setCurrentStamina((int) (health.getCurrentStamina() * (1 - this.getPower())));
 				break;
 
 			}

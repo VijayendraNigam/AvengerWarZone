@@ -11,6 +11,8 @@ import com.vn.avenger.warzone.common.Avail;
 import com.vn.avenger.warzone.i18n.MessageCodes;
 import com.vn.avenger.warzone.shop.ArsenalPO;
 import com.vn.avenger.warzone.shop.PurchaseObject;
+import com.vn.avenger.warzone.vo.GeneralVO;
+import com.vn.avenger.warzone.vo.HealthVO;
 
 public abstract class Combatant implements Fight<Combatant, Combatant>, 
                                            Acquire<ArsenalPO, MessageCodes>,
@@ -52,10 +54,20 @@ public abstract class Combatant implements Fight<Combatant, Combatant>,
 
 	@Override
 	public Combatant doAttack(Combatant attackedOn) {
-		
+
 		ArsenalPO attackerArsenal = this.getCombatantStats().getEquipped().getAcquiredArsenal();
+		GeneralVO attackerGeneral = this.getCombatantStats().getGeneral();
+
+		HealthVO attackedOnHealth = attackedOn.getCombatantStats().getHealth();
+
 		attackedOn.avail(attackerArsenal);
-		
+
+		if (attackedOnHealth.getCurrentHealth() <= 0) {
+			attackedOnHealth.setCurrentHealth(0);
+			attackedOnHealth.setAlive(false);
+		}
+
+		attackerGeneral.setXp(attackerGeneral.getXp() + 50);
 		return this;
 	}
 	

@@ -9,6 +9,7 @@ import com.vn.avenger.warzone.common.Helper;
 import com.vn.avenger.warzone.common.constants.Enums.ARSENAL;
 import com.vn.avenger.warzone.shop.ArsenalPO;
 import com.vn.avenger.warzone.shop.FirstAidPO;
+import com.vn.avenger.warzone.shop.FoodPO;
 import com.vn.avenger.warzone.shop.GearPO;
 import com.vn.avenger.warzone.shop.InstaHealthPO;
 import com.vn.avenger.warzone.shop.PotionPO;
@@ -24,6 +25,7 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 	private List<FirstAidPO> firstAids;
 	private List<InstaHealthPO> instaHealths;
 	private List<PotionPO> potions;
+	private List<FoodPO> food;
 
 	public EquippedVO() {
 		this.acquiredArsenal = Helper.ARSENAL_FACTORY.get(ARSENAL.TYPES.FISTS);
@@ -32,6 +34,7 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 		this.firstAids = new ArrayList<>();
 		this.instaHealths = new ArrayList<>();
 		this.potions = new ArrayList<>();
+		this.food = new ArrayList<>();
 	}
 
 	@Override
@@ -56,7 +59,11 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 		} else if (purchaseObject instanceof PotionPO) {
 			this.potions.add((PotionPO) purchaseObject);
 
+		} else if (purchaseObject instanceof FoodPO) {
+			this.food.add((FoodPO) purchaseObject);
+
 		}
+
 	}
 
 	@Override
@@ -76,6 +83,9 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 
 		} else if (purchaseObject instanceof PotionPO) {
 			this.potions.remove((PotionPO) purchaseObject);
+
+		} else if (purchaseObject instanceof FoodPO) {
+			this.food.remove((FoodPO) purchaseObject);
 
 		}
 	}
@@ -134,10 +144,20 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 		return this;
 	}
 
+	public List<FoodPO> getFood() {
+		return food;
+	}
+
+	public EquippedVO setFood(List<FoodPO> food) {
+		this.food = food;
+		return this;
+	}
+
 	@Override
 	public String toString() {
 		return "EquippedVO [acquiredArsenal=" + acquiredArsenal + ", arsenals=" + arsenals + ", gears=" + gears
-				+ ", firstAids=" + firstAids + ", instaHealths=" + instaHealths + ", potions=" + potions + "]";
+				+ ", firstAids=" + firstAids + ", instaHealths=" + instaHealths + ", potions=" + potions + ", food="
+				+ food + "]";
 	}
 
 	@Override

@@ -2,8 +2,6 @@ package com.vn.avenger.warzone.cast.hero;
 
 import static com.vn.avenger.warzone.common.Helper.NEWLINE;
 
-import java.util.stream.Collectors;
-
 import com.vn.avenger.warzone.cast.combatant.Combatant;
 import com.vn.avenger.warzone.cast.combatant.CombatantStats;
 import com.vn.avenger.warzone.cast.monster.Monster;

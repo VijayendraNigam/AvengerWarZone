@@ -29,7 +29,14 @@ public class Game {
 			switch (Gui.in.readInt()) {
 
 			case 1:
-				monster = Battle.fight(hero, monster);
+				if (hero.getCombatantStats().getHealth().isAlive()) {
+					monster = Battle.fight(hero, monster);
+
+				} else {
+					Gui.out.clearScreen();
+					Gui.out.println("You don't have any life left. You cannot fight!");
+					Gui.in.pause();
+				}
 				break;
 
 			case 2:

@@ -374,10 +374,10 @@ public class Enums {
 		
 		public enum INJURE {
 			
-			TINY(0.10f),
-			LIGHT(0.25f), 
-			SUPER(0.50f),
-			ULTRA(0.75f);
+			TINY(0.25f),
+			LIGHT(0.45f), 
+			SUPER(0.60f),
+			ULTRA(0.90f);
 
 			private float injury;
 
