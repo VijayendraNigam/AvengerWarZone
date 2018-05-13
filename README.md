@@ -1,8 +1,14 @@
 # AvengerWarZone
 A text-based role playing game in Java
 
-#Tasks :
+Tasks :
 1) As a player I want to create a character
 2) As a player I want to explore
 3) As a player I want to gain experience through fighting
 4) As a player I want to save and resume a game
+
+Design Constraints :
+One shouldn't use any frameworks like spring or any JPA implementation. 
+
+Run Guide :
+Execute Launcher.java
