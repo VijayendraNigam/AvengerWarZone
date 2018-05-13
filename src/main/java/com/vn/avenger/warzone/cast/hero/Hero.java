@@ -89,5 +89,4 @@ public class Hero extends Combatant implements Buy<PurchaseObject, MessageCodes>
 		return screen.toString();
 	}
 
-
 }

@@ -14,17 +14,21 @@ public class Mode {
 
 	public static GAME.MODE choose() {
 
-		Gui.out.println(SCREEN_FACTORY.get(SCREENS.TYPES.MODE));
+		while (true) {
+			
+			Gui.out.println(SCREEN_FACTORY.get(SCREENS.TYPES.MODE));
 
-		int choice = Gui.in.readInt();
+			int choice = Gui.in.readInt();
 
-		switch (choice) {
+			switch (choice) {
 
-		case 1:
-		case 2:
-		case 3:    return GAME.MODE.values()[choice - 1];
-		default:   return GAME.MODE.values()[0];
-		
+			case 1:
+			case 2:
+			case 3:    return GAME.MODE.values()[choice - 1];
+			default:   break;
+			
+			}
+
 		}
 
 	}

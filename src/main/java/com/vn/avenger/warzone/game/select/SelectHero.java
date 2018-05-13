@@ -16,25 +16,28 @@ public class SelectHero {
 
 	public static Hero choose() {
 
-		Gui.out.println(SCREEN_FACTORY.get(SCREENS.TYPES.HERO));
+		while (true) {
 
-		int choice = Gui.in.readInt();
+			Gui.out.println(SCREEN_FACTORY.get(SCREENS.TYPES.HERO));
 
-		switch (choice) {
+			int choice = Gui.in.readInt();
 
-		case 1:
-		case 2:
-		case 3:    
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-		case 9:
-		case 10:   return HERO_FACTORY.get(HERO.values()[choice - 1]);
-		default:   return HERO_FACTORY.get(HERO.values()[0]);
-		
+			switch (choice) {
+
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+			case 10:    return HERO_FACTORY.get(HERO.values()[choice - 1]);
+			default:    break;
+
+			}
+
 		}
-
 	}
 }

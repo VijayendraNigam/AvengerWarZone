@@ -9,6 +9,7 @@ import com.vn.avenger.warzone.action.Fight;
 import com.vn.avenger.warzone.common.Acquire;
 import com.vn.avenger.warzone.common.Avail;
 import com.vn.avenger.warzone.i18n.MessageCodes;
+import com.vn.avenger.warzone.screen.Window;
 import com.vn.avenger.warzone.shop.ArsenalPO;
 import com.vn.avenger.warzone.shop.PurchaseObject;
 import com.vn.avenger.warzone.vo.GeneralVO;
@@ -17,6 +18,7 @@ import com.vn.avenger.warzone.vo.HealthVO;
 public abstract class Combatant implements Fight<Combatant, Combatant>, 
                                            Acquire<ArsenalPO, MessageCodes>,
                                            Avail<PurchaseObject, MessageCodes>, 
+                                           Window<String>,
                                            Serializable {
 
 	private static final long serialVersionUID = -138744694364281533L;
@@ -117,5 +119,39 @@ public abstract class Combatant implements Fight<Combatant, Combatant>,
 
 		return screen.toString();
 	}
+	
+	@Override
+	public String view() {
+		StringBuilder screen = new StringBuilder();
+
+		screen.append("_______________________________________________________").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|           |A|v|e|n|g|e|r|  |W|a|r|z|o|n|e|           |").append(NEWLINE);
+		screen.append("|           +-+-+-+-+-+-+-+  +-+-+-+-+-+-+-+           |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|                 Combatant Information                |").append(NEWLINE);
+		screen.append("|                                                      |").append(NEWLINE);
+		screen.append("|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|").append(NEWLINE);
+		screen.append("|                   ").append(this.getCombatantStats().getGeneral().getCombatantName()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Score Info--").append(NEWLINE);
+		screen.append("|          XP:               ").append(this.getCombatantStats().getGeneral().getXp()).append(NEWLINE);
+		screen.append("|          Highest Score:    ").append(this.getCombatantStats().getStatistics().getHighestScore()).append(NEWLINE);
+		screen.append("|                                                       ").append(NEWLINE);
+		screen.append("|--Player Info--").append(NEWLINE);
+		screen.append("|          Health:           ").append(this.getCombatantStats().getHealth().getCurrentHealth()).append(NEWLINE);
+		screen.append("|          Coins:            ").append(this.getCombatantStats().getWealth().getCoins()).append(NEWLINE);
+		screen.append("|          Diamonds:         ").append(this.getCombatantStats().getWealth().getDiamonds()).append(NEWLINE);
+		screen.append("|          Acquired Arsenal: ").append(this.getCombatantStats().getEquipped().getAcquiredArsenal().getName()).append(NEWLINE);
+		screen.append("|          Arsenal:          ").append(this.getCombatantStats().getEquipped().getArsenals().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|          Potions:          ").append(this.getCombatantStats().getEquipped().getPotions().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|          First-Aid:        ").append(this.getCombatantStats().getEquipped().getFirstAids().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|          InstaHealth:      ").append(this.getCombatantStats().getEquipped().getInstaHealths().stream().map(po -> po.getName()).collect(Collectors.joining(","))).append(NEWLINE);
+		screen.append("|_______________________________________________________").append(NEWLINE);
+
+		return screen.toString();
+	}
+
 
 }
