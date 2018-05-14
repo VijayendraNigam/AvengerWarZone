@@ -21,6 +21,10 @@ public class Hero extends Combatant implements Buy<PurchaseObject, MessageCodes>
 		super(combatantStats);
 	}
 
+	/**
+	 * Hero will be able to purchase the items as per there cost in Coins,
+	 * and Minimum level constraints.
+	 */
 	@Override
 	public MessageCodes buy(PurchaseObject purchaseObject) {
 
@@ -40,6 +44,12 @@ public class Hero extends Combatant implements Buy<PurchaseObject, MessageCodes>
 		return MessageCodes.BUY_FAIL_FUND.setArguments(purchaseObject.getName());
 	}
 	
+	/**
+	 * This will give the view of war-zone with Hero and Monster profile information.
+	 * 
+	 * @param monster
+	 * @return
+	 */
 	public String getWarZoneView(Monster monster) {
 		
 		StringBuilder screen = new StringBuilder();

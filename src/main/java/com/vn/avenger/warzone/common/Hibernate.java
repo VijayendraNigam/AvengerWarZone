@@ -6,6 +6,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * A generic implementation to persist and resurrect the serialized object.
+ * 
+ * @author vijayendranigam
+ *
+ * @param <T>
+ */
 public interface Hibernate<T> {
 
 	default boolean save(String fileName) {

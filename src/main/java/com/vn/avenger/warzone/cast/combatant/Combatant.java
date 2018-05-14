@@ -42,12 +42,20 @@ public abstract class Combatant implements Fight<Combatant, Combatant>,
 		return "Combatant [combatantStats=" + combatantStats + "]";
 	}
 
+	/**
+	 * This allows the Combatant to acquire the arsenal with whom the fight
+	 * will take place.
+	 */
 	@Override
 	public MessageCodes acquire(ArsenalPO arsenal) {
 		this.getCombatantStats().getEquipped().setAcquiredArsenal(arsenal);
 		return MessageCodes.ACQUIRE_SUCCESS.setArguments(arsenal.getName());
 	}
 
+	/**
+	 * This allows the Combatant to use the purchase object. This increases 
+	 * or decreases the Combatant's strength, stamina or strength.
+	 */
 	@Override
 	public MessageCodes avail(PurchaseObject purchaseObject) {
 		MessageCodes messageCode = purchaseObject.use(this);

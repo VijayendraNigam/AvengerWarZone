@@ -55,7 +55,6 @@ public class Helper {
 			   username.toUpperCase() +
 			   MANIFEST +
 			   SAVE_EXTENSION;
-				
 	}
 	
 }
