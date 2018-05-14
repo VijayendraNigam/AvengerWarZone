@@ -29,6 +29,8 @@ public class Battle {
 
 			Battle.doAttack(hero, monster);
 
+			fight(hero, monster);
+			
 			return monster;
 
 		} else {
