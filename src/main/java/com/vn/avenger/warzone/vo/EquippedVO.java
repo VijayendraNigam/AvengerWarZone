@@ -43,10 +43,6 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 		if (purchaseObject instanceof ArsenalPO) {
 			this.arsenals.add((ArsenalPO) purchaseObject);
 
-			if (arsenals.isEmpty()) {
-				arsenals.add(Helper.ARSENAL_FACTORY.get(ARSENAL.TYPES.FISTS));
-			}
-
 		} else if (purchaseObject instanceof GearPO) {
 			this.gears.add((GearPO) purchaseObject);
 
@@ -71,6 +67,10 @@ public class EquippedVO implements ValueObject, Commodity<PurchaseObject> {
 
 		if (purchaseObject instanceof ArsenalPO) {
 			this.arsenals.remove((ArsenalPO) purchaseObject);
+			
+			if (arsenals.isEmpty()) {
+				arsenals.add(Helper.ARSENAL_FACTORY.get(ARSENAL.TYPES.FISTS));
+			}
 
 		} else if (purchaseObject instanceof GearPO) {
 			this.gears.remove((GearPO) purchaseObject);
